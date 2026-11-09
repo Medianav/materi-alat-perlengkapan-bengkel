@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en" class=""><head><script>window.livecodes = window.livecodes || {};</script><title>Materi Alat Perlengkapan Bengkel</title><meta name="title" content="Materi Alat Perlengkapan Bengkel"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js" async=""></script><script type="importmap">{
+  "imports": {}
+}</script></head><body>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Interaktif: Alat Perlengkapan Bengkel (Workshop Equipment)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Orbitron:wght@600;800&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#e63946',
+                            orange: '#f77f00',
+                            dark: '#12141d',
+                            card: '#1e2230',
+                            accent: '#3a86ff',
+                            light: '#f8f9fa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12141d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f77f00;
+        }
+
+        /* Carousel Drag Cursor */
+        .carousel-track {
+            cursor: grab;
+            user-select: none;
+        }
+        .carousel-track:active {
+            cursor: grabbing;
+        }
+
+        /* Image hover zoom */
+        .img-zoom-container {
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+        .img-zoom-container img {
+            transition: transform 0.4s ease-in-out;
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Hand Swipe Animation Overlay */
+        @keyframes swipeAnimation {
+            0% { transform: translateX(40px) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateX(-40px) rotate(-10deg); opacity: 1; }
+            100% { transform: translateX(40px) rotate(0deg); opacity: 0.2; }
+        }
+        .animate-swipe {
+            animation: swipeAnimation 2.2s infinite ease-in-out;
+        }
+
+        /* Subtle Pulse Effect */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .glow-effect {
+            animation: pulseGlow 3s infinite;
+        }
+    </style>
+
+
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
+                <!-- Logo & Title -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-red to-brand-orange flex items-center justify-center text-white shadow-lg shadow-brand-red/30">
+                        <i class="fa-solid font-bold text-2xl fa-screwdriver-wrench"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-extrabold font-tech tracking-wide bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                            ALAT PERLENGKAPAN BENGKEL
+                        </h1>
+                        <p class="text-xs text-slate-400 font-medium">Modul Materi Online untuk X-OTO</p>
+                    </div>
+                </div>
+
+                <!-- Nav Tabs -->
+                <nav class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-800 w-full sm:w-auto">
+                    <button id="nav-materi" onclick="switchTab('materi')" class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md">
+                        <i class="fa-solid fa-book-open mr-2"></i>Materi Perlengkapan
+                    </button>
+                    <button id="nav-kuis" onclick="startSecureExam()" class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-shield-halved mr-2 text-brand-orange"></i>Latihan Soal
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- SECTION MATERI -->
+        <div id="section-materi" class="space-y-10">
+
+            <!-- INTERACTIVE CAROUSEL SLIDER SECTION -->
+            <section class="relative bg-brand-card rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-2xl overflow-hidden">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-bold rounded-full mb-1">
+                            KATALOG VISUAL INTERAKTIF
+                        </span>
+                        <h2 class="text-lg sm:text-xl font-bold font-tech text-white flex items-center gap-2">
+                            <i class="fa-solid fa-images text-brand-orange"></i> Slide Gambar Perlengkapan Utama
+                        </h2>
+                    </div>
+                    <div class="text-xs text-slate-400 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        Usap / Drag untuk jelajahi alat
+                    </div>
+                </div>
+
+                <!-- CAROUSEL WRAPPER WITH SWIPE INSTRUCTION OVERLAY -->
+                <div class="relative group">
+                    <!-- SWIPE INSTRUCTION OVERLAY (Auto dismisses on interaction) -->
+                    <div id="swipe-overlay" class="absolute inset-0 z-20 bg-black/65 backdrop-blur-[2px] rounded-xl flex flex-col items-center justify-center text-white pointer-events-none transition-opacity duration-500">
+                        <div class="text-4xl text-brand-orange mb-3 animate-swipe">
+                            <i class="fa-solid fa-hand-pointer"></i>
+                        </div>
+                        <p class="font-bold text-base sm:text-lg text-center px-4">Usap / Drag Kiri-Kanan untuk Melihat Gambar Alat</p>
+                        <p class="text-xs text-slate-300 mt-1">Sentuh atau geser slide untuk membuka</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="w-8 h-1 bg-white/40 rounded-full animate-pulse"></span>
+                            <span class="w-8 h-1 bg-brand-orange rounded-full animate-pulse"></span>
+                            <span class="w-8 h-1 bg-white/40 rounded-full animate-pulse"></span>
+                        </div>
+                    </div>
+
+                    <!-- CAROUSEL TRACK CONTAINER -->
+                    <div id="carousel-viewport" class="overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900/90 relative">
+                        <div id="carousel-track" class="carousel-track flex transition-transform duration-300 ease-out">
+                            <!-- Slides will be injected dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- PREV / NEXT BUTTONS -->
+                    <button id="btn-prev" onclick="moveSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all shadow-lg active:scale-95">
+                        <i class="fa-solid fa-chevron-left text-lg"></i>
+                    </button>
+                    <button id="btn-next" onclick="moveSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all shadow-lg active:scale-95">
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- CAROUSEL INDICATOR DOTS & CAPTION -->
+                <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div id="slide-caption" class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                        <!-- Dynamic Slide Title -->
+                    </div>
+                    <div id="carousel-dots" class="flex items-center gap-2">
+                        <!-- Dots injected dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- MATERI PERALATAN DETAIL CARDS -->
+            <section class="space-y-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold font-tech text-white">Panduan Materi Detail (10 Perlengkapan Utama)</h2>
+                        <p class="text-sm text-slate-400">Pelajari pengertian, fungsi, prinsip/cara kerja, dan prosedur penggunaan aman tiap alat.</p>
+                    </div>
+                    <!-- Quick Search / Filter -->
+                    <div class="relative min-w-[240px]">
+                        <input type="text" id="search-tool" onkeyup="filterTools()" placeholder="Cari nama alat..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-brand-orange transition-colors pl-10">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-500 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- CARDS CONTAINER (10 ITEMS) -->
+                <div id="tools-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Tool Cards Injected Dynamically by JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION KUIS INTERAKTIF (20 SOAL) -->
+        <div id="section-kuis" class="hidden space-y-8 select-none">
+            
+            <!-- EXAM BROWSER SECURITY BAR (Active during quiz) -->
+            <div id="exam-security-bar" class="bg-red-950/80 border border-red-700/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold shadow-2xl backdrop-blur-md sticky top-4 z-50">
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
+                    <div>
+                        <p class="text-white font-bold font-tech text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-lock text-brand-orange"></i> PERINGATAN UNTUK SISWA
+                        </p>
+                        <p class="text-red-300">Dilarang pindah tab, buka jendela lain, atau mereload halaman!</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+                        Peringatan Pelanggaran: <span id="violation-count" class="text-brand-orange font-bold font-tech text-sm">0 / 3</span>
+                    </div>
+                    <button type="button" onclick="requestTeacherResetPin()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg text-slate-200 transition">
+                        <i class="fa-solid fa-key mr-1 text-brand-orange"></i> Reset via Token Guru
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Welcome / Score Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-brand-card to-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 text-center relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-brand-orange pointer-events-none font-tech">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <span class="px-4 py-1.5 bg-brand-red/10 border border-brand-red/30 text-brand-red text-xs font-bold rounded-full inline-block mb-3">
+                    EVALUASI PEMBELAJARAN (SECURE EXAM)
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-tech text-white mb-2">Kuis Latihan Perlengkapan Bengkel</h2>
+                <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-6">
+                    Uji pemahaman Anda mengenai 10 jenis alat perlengkapan bengkel dengan menjawab 20 soal pilihan ganda di bawah ini. Jawaban hanya dapat dikirim 1 kali.
+                </p>
+
+                <!-- Input Nama Peserta Ujian -->
+                <div class="max-w-md mx-auto mb-6 text-left">
+                    <label for="student-name" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-user-graduate text-brand-orange mr-1"></i> Nama Lengkap Siswa / Peserta Ujian:
+                    </label>
+                    <input type="text" id="student-name" placeholder="Masukkan Nama Lengkap..." oninput="handleNameInput(this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 text-sm font-semibold focus:outline-none focus:border-brand-orange transition-colors">
+                </div>
+
+                <!-- Score Board (Hidden initially or updated live) -->
+                <div id="quiz-scoreboard" class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 max-w-md mx-auto flex items-center justify-around">
+                    <div class="text-center">
+                        <p class="text-xs text-slate-400 uppercase font-semibold">Nama Peserta</p>
+                        <p id="display-student-name" class="text-sm font-bold font-tech text-slate-200 truncate max-w-[120px]">-</p>
+                    </div>
+                    <div class="w-px h-8 bg-slate-700"></div>
+                    <div class="text-center">
+                        <p class="text-xs text-slate-400 uppercase font-semibold">Dijawab</p>
+                        <p id="stat-answered" class="text-2xl font-bold font-tech text-brand-orange">0/20</p>
+                    </div>
+                    <div class="w-px h-8 bg-slate-700"></div>
+                    <div class="text-center">
+                        <p class="text-xs text-slate-400 uppercase font-semibold">Skor Akhir</p>
+                        <p id="stat-score" class="text-2xl font-bold font-tech text-emerald-400">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Form -->
+            <form id="quiz-form" onsubmit="submitQuiz(event)" class="space-y-6">
+                <div id="questions-list" class="space-y-6">
+                    <!-- 20 Multiple Choice Questions Injected Dynamically -->
+                </div>
+
+                <!-- Submit / Reset Action Buttons -->
+                <div class="sticky bottom-6 z-40 bg-brand-dark/90 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div id="quiz-status-msg" class="text-sm font-semibold text-slate-300">
+                        Silakan jawab seluruh 20 pertanyaan. (Kesempatan Kirim: <span id="submit-chance-badge" class="text-emerald-400 font-bold">1/1 Masih Ada</span>)
+                    </div>
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button type="button" onclick="requestTeacherResetPin()" class="flex-1 sm:flex-none px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition-all border border-slate-700">
+                            <i class="fa-solid fa-lock mr-2 text-brand-orange"></i>Reset Kuis (Butuh PIN)
+                        </button>
+                        <button type="submit" id="btn-submit-quiz" class="flex-1 sm:flex-none px-8 py-3 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm transition-all shadow-lg shadow-brand-red/20">
+                            <i class="fa-solid fa-paper-plane mr-2"></i>Kirim &amp; Lihat Hasil (Sekali Klik)
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- MODAL POPUP PENGAWAS / TOKEN SECURITY RESET -->
+    <div id="modal-security" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="bg-brand-card border border-slate-700 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl text-center">
+            <div class="w-16 h-16 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold font-tech text-white">Verifikasi TOKEN Pengawas / Guru</h3>
+                <p class="text-xs text-slate-400 mt-1">Masukkan PIN 4 digit untuk mereset kuis atau membuka kembali akses kuis.</p>
+            </div>
+
+            <div class="space-y-3">
+                <input type="password" id="input-teacher-pin" maxlength="6" placeholder="Masukkan PIN Token..." class="w-full text-center text-2xl font-tech tracking-widest bg-slate-900 border border-slate-700 rounded-xl py-3 text-white focus:outline-none focus:border-brand-orange">
+                <p id="pin-error-msg" class="text-xs text-red-400 hidden font-semibold">PIN Token Salah! Silakan hubungi Guru Pengawas.</p>
+                <div class="text-[11px] text-slate-500 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
+                    *Default Token Guru: <span class="text-slate-300 font-mono font-bold">1234</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button type="button" onclick="closeSecurityModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700">
+                    Batal
+                </button>
+                <button type="button" onclick="verifyTeacherPin()" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white text-xs font-bold hover:opacity-90 shadow-lg">
+                    Verifikasi Token
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFIKASI PELANGGARAN (NON-BLOCKING SUBTITUTE UNTUK ALERT JS) -->
+    <div id="toast-security-warning" class="fixed top-6 right-6 z-[60] bg-red-950 border-2 border-brand-red text-white px-5 py-4 rounded-2xl shadow-2xl max-w-sm hidden transition-all duration-300 transform translate-y-0">
+        <div class="flex items-start gap-3">
+            <div class="text-brand-orange text-2xl mt-0.5">
+                <i class="fa-solid fa-triangle-exclamation animate-bounce"></i>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm font-tech text-white">PERINGATAN EXAM BROWSER</h4>
+                <p id="toast-warning-text" class="text-xs text-slate-200 mt-1 leading-relaxed">Terdeteksi pelanggaran tata tertib kuis!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY LOCKSCREEN UNTUK KEMBALI FULLSCREEN KUIS -->
+    <div id="modal-fullscreen-lock" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-4 hidden">
+        <div class="bg-brand-card border border-red-800/80 rounded-2xl p-6 sm:p-8 max-w-lg w-full space-y-6 shadow-2xl text-center">
+            <div class="w-20 h-20 rounded-full bg-red-950/80 border-2 border-brand-red text-brand-orange flex items-center justify-center mx-auto text-3xl shadow-lg shadow-brand-red/20 animate-pulse">
+                <i class="fa-solid fa-expand"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-2xl font-bold font-tech text-white">MODE EXAM BROWSER TERKUNCI</h3>
+                <p class="text-sm text-slate-300">
+                    Halaman terdeteksi di-refresh atau dibuka kembali. Untuk melanjutkan kuis, Anda wajib mengunci tampilan ke mode <span class="text-brand-orange font-bold">Layar Penuh (Fullscreen)</span>.
+                </p>
+            </div>
+
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-left space-y-2">
+                <p class="text-slate-200 font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-brand-orange"></i> Ketentuan Ujian:
+                </p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Kuis akan otomatis terkunci jika melanggar 3x.</li>
+                    <li>Siswa tidak dapat keluar fullscreen secara manual.</li>
+                </ul>
+            </div>
+
+            <button type="button" onclick="resumeFullscreenExam()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white font-bold text-sm hover:opacity-90 shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-lock"></i> Kunci Layar Penuh &amp; Lanjutkan Kuis
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-medium text-slate-400">Modul Pembelajaran Interaktif Otomotif - Perlengkapan Bengkel</p>
+            <p class="mt-1">SMKS Teknologi Madania Salubarani © 2026</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================================================
+           1. DATA SET PERALATAN (10 PERALATAN UTAMA DENGAN MULTI FOTO NYATA & IKON TITLE)
+           ========================================================================== */
+        const toolsData = [
+            {
+                id: 1,
+                name: "Pengganjal Ban / Roda",
+                english: "Wheel Chock / Blocking",
+                category: "Keamanan Pengangkatan",
+                iconClass: "fa-solid fa-ring",
+                realImgs: [
+                    "https://mc-group.id/uploads/filemanager/Mengenal-Ganjal-Ban.jpg",
+                    "https://mc-group.id/uploads/filemanager/Beberapa-Fungsi-Ganjal-Ban-Truk.jpg",
+                    "https://mc-group.id/uploads/filemanager/Jenis-Jenis-Ganjal-Ban-Truk.jpg"
+                ],
+                pengertian: "Alat pengaman berbahan karet keras, kayu, atau logam berbentuk segitiga yang diletakkan pada permukaan ban kendaraan.",
+                fungsi: "Mencegah kendaraan menggelinding atau bergeser secara tidak sengaja saat diangkat oleh dongkrak maupun saat parkir di area miring.",
+                caraKerja: "Mengandalkan gesekan permukaan bawah balok yang anti-slip dan sudut kemiringan (wedge effect) untuk menahan gaya dorong gravitasi atau geseran roda.",
+                penggunaan: [
+                    "Pasang rem tangan (parking brake) kendaraan terlebih dahulu.",
+                    "Tempatkan pengganjal tepat di bagian depan dan belakang roda yang berseberangan dengan roda yang diangkat.",
+                    "Pastikan pengganjal menempel erat pada tapak ban sebelum memulai pengangkatan.",
+                    "Jangan gunakan pengganjal yang retak, licin oleh oli, atau rusak."
+                ]
+            },
+            {
+                id: 2,
+                name: "Dongkrak (Mekanik & Hidrolik)",
+                english: "Mechanical & Hydraulic Jack",
+                category: "Pengangkat Portabel",
+                iconClass: "fa-solid fa-truck-monster",
+                realImgs: [
+                    "https://www3.wuling.id/wp-content/uploads/2022/01/wuling_image-artikel_feb-2-2-1000x569.jpg",
+                    "https://dsoodysseusstprod.blob.core.windows.net/strapi-media/assets/sys_master_media_hef_h2c_8819363315742_Dongkrak_20_Mobil_76b840e329.jpeg",
+                    "https://statik.tempo.co/data/2021/12/24/id_1076057/1076057_720.jpg"
+                ],
+                pengertian: "Alat pengangkat portabel untuk menaikkan sebagian beban kendaraan dalam jarak ketinggian terbatas.",
+                fungsi: "Memudahkan pekerjaan servis di bagian bawah seperti mengganti roda, servis rem, atau memasang jack stand.",
+                caraKerja: "Mekanik (Ulir/Scissor) memakai prinsip ulir daya. Hidrolik (Bottle/Floor Jack) menerapkan Hukum Pascal: tekanan fluida cair dipompa dari silinder kecil ke silinder besar untuk menghasilkan gaya angkat berlipat.",
+                penggunaan: [
+                    "Parkirkan kendaraan di permukaan datar dan keras, lalu pasang ganjal roda.",
+                    "Cari titik tumpu resmi (Jacking Point) pada sasis/frame sesuai buku manual.",
+                    "Pompa tuas hidrolik atau putar ulir mekanik hingga roda terangkat dari tanah.",
+                    "DILARANG BEKERJA DI BAWAH KENDARAAN yang hanya ditopang oleh dongkrak (wajib gunakan Jack Stand)."
+                ]
+            },
+            {
+                id: 3,
+                name: "Penopang (Jack Stand)",
+                english: "Safety Jack Stand",
+                category: "Penopang Keamanan",
+                iconClass: "fa-solid fa-shield-cat",
+                realImgs: [
+                    "https://blog.indoteknik.com/wp-content/uploads/2025/05/R3-28.jpg",
+                    "https://www.shutterstock.com/image-photo/closeup-red-jack-stand-supporting-260nw-2800266847.jpg",
+                    "https://i.ebayimg.com/images/g/FgkAAeSwB0BoqBGF/s-l1200.webp"
+                ],
+                pengertian: "Alat penopang mekanis berkaki kokoh yang dirancang untuk menahan beban kendaraan secara konstan setelah diangkat dongkrak.",
+                fungsi: "Menjamin keamanan maksimal bagi teknisi saat melakukan pekerjaan kolong kendaraan dalam durasi yang lama.",
+                caraKerja: "Menggunakan batang bertingkat dengan pengunci pasak (pin lock) atau sistem gerigi kerek (ratchet system) yang menahan beban secara mekanis tanpa risiko kempes/turun.",
+                penggunaan: [
+                    "Angkat kendaraan dengan dongkrak melebihi tinggi kerja yang dibutuhkan.",
+                    "Posisikan Jack Stand persis di bawah titik tumpu sasis yang kuat.",
+                    "Atur ketinggian Jack Stand dan pasang pin pengunci secara sempurna.",
+                    "Turunkan dongkrak perlahan hingga beban kendaraan tertumpu penuh dan stabil pada Jack Stand."
+                ]
+            },
+            {
+                id: 4,
+                name: "Car Lift (Single, Two, Four Post & Scissor)",
+                english: "Automotive Car Lift",
+                category: "Pengangkat Utama Bengkel",
+                iconClass: "fa-solid fa-car-side",
+                realImgs: [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDhrt-5ZJnpWQE_wswfSXrbUdcVkM6r7T7qq2DW5ksVePmvglfHdJiiiA&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQlUYaCYRUyNmP3kcuf13Ef69wVKbX4IgES6z4JmXCZg&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvgy0ISYjlo_UOKwSE7qoPtj6laJ1wCoQroWJcNX9QA&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSyGAReB0ruX6bx3MRLX6lN8HcbTeIfBg5nsPmvM-GabOii5-RQa-1aw2A&s=10"
+                ],
+                pengertian: "Alat pengangkat kendaraan bertenaga elektro-hidrolik/pneumatik untuk mengangkat seluruh bodi mobil hingga ketinggian berdiri teknisi.",
+                fungsi: "Memungkinkan inspeksi dan perbaikan komponen bawah mobil (suspensi, knalpot, transmisi, oli) secara ergonomis.",
+                caraKerja: "Pompa hidrolik bertenaga motor listrik mengalirkan oli bertekanan tinggi ke dalam silinder hidrolik pada tiang (post) atau mekanisme gunting (scissor) untuk mendorong lengan pembawa ke atas.",
+                penggunaan: [
+                    "Variasi Jenis: Single Post (pencucian), Two Post (servis umum/roda bebas), Four Post (spooring/alignment), Scissor Lift (ruang terbatas).",
+                    "Posisikan mobil tepat di tengah-tengah antar tiang.",
+                    "Atur lengan pengangkat (arm pad) pada titik jacking point kendaraan.",
+                    "Naikkan setinggi 10 cm, goyangkan mobil perlahan untuk memastikan kestabilan.",
+                    "Naikkan hingga posisi kerja dan kunci mekanisme pengaman mekanis (safety lock bar) sebelum bekerja."
+                ]
+            },
+            {
+                id: 5,
+                name: "Bike Lift (Pengangkat Sepeda Motor)",
+                english: "Motorcycle Lift Table",
+                category: "Pengangkat Khusus Motor",
+                iconClass: "fa-solid fa-motorcycle",
+                realImgs: [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfWLgQl0cIWomtplZ_cJF8Ysyy7VxCFDQ5BFRuLY6D0lZUfGFFtWRlVko&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH1zN2awxwpEPSoh2USKr6PqcfwQYXLbPCAPhPaGDkI5P2C95ENTsWMRY4&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk4khvVn5Q2LXE2fymaSIallCDsfnHEcNTSLZpLu89egdzja0DMbP2Ryw&s=10"
+                ],
+                pengertian: "Meja pengangkat khusus motor berlandaskan plat baja yang dapat diatur ketinggiannya secara hidrolik atau pneumatik.",
+                fungsi: "Mengangkat posisi sepeda motor agar sejajar dengan dada/pinggang teknisi saat penyetelan mesin dan kelistrikan.",
+                caraKerja: "Pedal kaki atau tuas pneumatik memompa oli/udara ke silinder yang menggerakkan mekanisme lipat rangka gunting di bawah meja plat.",
+                penggunaan: [
+                    "Naikkan sepeda motor ke atas meja melalui ramp papan luncur.",
+                    "Jepit roda depan pada ragum pencengkeram (front wheel vise) hingga kencang.",
+                    "Ikat bodi motor menggunakan strap tali tie-down.",
+                    "Injak pedal pengangkat hingga mencapai ketinggian nyaman, lalu aktifkan kunci pengaman meja."
+                ]
+            },
+            {
+                id: 6,
+                name: "Pengangkat Mesin (Engine Crane)",
+                english: "Hydraulic Engine Crane / Hoist",
+                category: "Pengangkat Komponen Berat",
+                iconClass: "fa-solid fa-weight-hanging",
+                realImgs: [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjcis2aBrWmUzwr1g7sYR6a-mYcVxJbX3FX59W6_goVX7cw2QSQTUEnAE&s=10",
+                    "https://hilka.co.uk/media/catalog/product/cache/bfbc3bbd9deeddc29dc2a84637868c21/8/2/82951000-additional-8-2216be.jpg",
+                    "https://5.imimg.com/data5/SELLER/Default/2021/3/VG/ZJ/WS/2953139/engine-crane-3-ton-500x500.jpeg"
+                ],
+                pengertian: "Derekan pengangkat portabel beroda yang dilengkapi lengan boom dan silinder hidrolik untuk mengangkat mesin kendaraan.",
+                fungsi: "Melepas dan memasang blok mesin (engine block) atau transmisi berat keluar dari kompartemen mesin mobil.",
+                caraKerja: "Silinder hidrolik dipompa untuk mendorong lengan boom ke atas. Beban tergantung pada rantai pengait yang terhubung pada rantai/sling pembungkus mesin.",
+                penggunaan: [
+                    "Sesuaikan panjang lengan ekstensi boom sesuai kapasitas beban yang tertera (misal: 0.5 ton / 1 ton).",
+                    "Dorong derekan hingga kaki tumpuan masuk ke bawah bagian depan mobil.",
+                    "Kaitkan pengait (hook) pada rantai sling yang terpasang kuat di angkur mesin.",
+                    "Pompa silinder perlahan hingga mesin terangkat bebas dari engine mounting."
+                ]
+            },
+            {
+                id: 7,
+                name: "Tali Pengemban (Sling)",
+                english: "Lifting Sling (Chain, Webbing, Wire)",
+                category: "Alat Pengikat & Pengangkat",
+                iconClass: "fa-solid fa-link",
+                realImgs: [
+                    "https://m.media-amazon.com/images/I/61S9yiK9azL._AC_UF1000,1000_QL80_.jpg",
+                    "https://www.asmarines.com/assets/Featured%20Image%20Artikel/Synthetic%20Sling/Detail/jenis%20webbing%20sling.webp"
+                ],
+                pengertian: "Sabuk atau rantai khusus fleksibel bermaterial sabuk sintetis (polyester webbing), kawat baja (wire rope), atau rantai baja alloy.",
+                fungsi: "Melilit dan mengikat komponen berat (seperti mesin/transmisi) agar terhubung secara aman ke pengait crane saat diangkat.",
+                caraKerja: "Meneruskan gaya tarik vertikal dari pengait derek secara merata pada titik angkur komponen tanpa merusak atau membentur dinding komponen.",
+                penggunaan: [
+                    "Pilih jenis sling sesuai beban (Webbing untuk cegah goresan, Chain/Wire untuk temperatur & beban sangat berat).",
+                    "Periksa Working Load Limit (WLL) pada label sling, jangan melebihi kapasitas.",
+                    "Lilitkan sling pada bagian mesin yang seimbang (tidak licin) menggunakan metode choker atau basket hitch.",
+                    "Pastikan sling tidak terbelit atau terkena sudut tajam logam tanpa pelindung."
+                ]
+            },
+            {
+                id: 8,
+                name: "Press Hidrolik (Hydraulic Press)",
+                english: "Hydraulic Shop Press",
+                category: "Alat Penekan Komponen",
+                iconClass: "fa-solid fa-compress",
+                realImgs: [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJNGmcZ1-59V3BIS4Emyp3NZLk7uBlPzXODlz36nMrnQ&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAudP_fgCi5bf7mTJXvp-MAdoxPKbPtflaFv9IxtHI3w&s=10",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVh1S-uNIDMFMQGffQC51GQtEGUt3X2b4znq33fSn8D_jMh3f5VPoC-o&s=10"
+                ],
+                pengertian: "Alat penekan berkerangka baja kokoh yang memanfaatkan daya tekan hidrolik puluhan ton.",
+                fungsi: "Memasang dan melepas komponen press-fit presisi pres tinggi seperti bearing (bantalan), bushing, poros pasak, serta meluruskan komponen bengkok.",
+                caraKerja: "Fluida hidrolik dipompa ke dalam piston silinder atas untuk menekan pin penekan (ram) ke bawah terhadap benda kerja yang ditahan meja landasan.",
+                penggunaan: [
+                    "Letakkan benda kerja pada pelat meja landasan (V-block) secara rata dan presisi tegak lurus.",
+                    "Pasang adaptor pendorong yang sesuai dengan ukuran diameter bearing/bushing.",
+                    "Tutup katup pembalik (release valve) dan pompa tuas hidrolik perlahan sambil mengamati manometer tekanan.",
+                    "Gunakan kacamata pelindung (safety goggles) karena tekanan tinggi berisiko melempar komponen jika miring."
+                ]
+            },
+            {
+                id: 9,
+                name: "Dudukan Mesin (Engine Stand)",
+                english: "Rotatable Engine Stand",
+                category: "Dudukan Servis Mesin",
+                iconClass: "fa-solid fa-arrows-spin",
+                realImgs: [
+                    "https://www.fabheavyparts.com/cdn/shop/articles/engine-stand-your-ultimate-guide-to-engine-mastery-5943171.png?v=1774922172&width=1600",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ31Lfi47YLCVsTwWXL-wpf4nzvAY4oLKP8RSsN3qLSgw&s=10"
+                ],
+                pengertian: "Stand penopang beroda dengan kepala pemutar (rotating head) untuk memegang blok mesin dalam posisi melayang.",
+                fungsi: "Memudahkan proses pembongkaran (overhaul), inspeksi, perakitan, dan pembersihan komponen utama mesin.",
+                caraKerja: "Mesin dibautkan pada 4 lengan adaptor kepala stand. Kepala stand dilengkapi roda gigi cacing/pin pengunci yang bisa diputar 360 derajat sesuai posisi kerja teknisi.",
+                penggunaan: [
+                    "Pasang 4 lengan adaptor (mounting arms) pada lubang baut transmisi di blok mesin.",
+                    "Kencangkan seluruh baut penahan dengan momen yang sesuai.",
+                    "Hubungkan kepala adaptor ke tiang Engine Stand dan kencangkan pengunci utama.",
+                    "Lepaskan pengait Engine Crane setelah dipastikan beban mesin ditopang sempurna oleh Engine Stand."
+                ]
+            },
+            {
+                id: 10,
+                name: "Pistol Stamped (Grease Gun / Pompa Gemuk)",
+                english: "Manual / Pneumatic Grease Gun",
+                category: "Alat Pelumasan Presisi",
+                iconClass: "fa-solid fa-oil-can",
+                realImgs: [
+                    "https://en.hoegert.com/wp-content/uploads/2021/09/HT8G908_smarownica_1.ca58c88e.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqU5czZ9vqAkiI3PqgYPsKPrbzTlHecXuqGJgHie5zkg&s=10",
+                    "https://en.hoegert.com/wp-content/uploads/2021/09/HT8G905.07cb10d2.jpg"
+                ],
+                pengertian: "Alat tuas pelumas bertabung silinder yang menyalurkan gemuk/stempet (grease) bertekanan tinggi.",
+                fungsi: "Memasukkan pelumas padat/krim ke dalam komponen berputar seperti bearing roda, u-joint poros propeler, dan ball joint melalui pentil grease fitting (nipple).",
+                caraKerja: "Penekanan tuas mendorong piston internal untuk memompa gemuk dari dalam tabung melewati selang fleksibel menuju kuncupan pentil nipple secara presisi.",
+                penggunaan: [
+                    "Bersihkan nipple grease pada kendaraan dari kotoran dan debu.",
+                    "Tancapkan ujung coupler nozzle pistol stamped tegak lurus pada nipple hingga terkunci rapat.",
+                    "Tekan tuas pistol beberapa kali hingga gemuk segar terlihat sedikit keluar dari celah perapat sil.",
+                    "Lap sisa gemuk yang berlebih agar tidak menampung kotoran/debu jalanan."
+                ]
+            }
+        ];
+
+        /* Map keeping track of active image index for each card gallery */
+        const cardSlideIndices = {};
+        toolsData.forEach(t => cardSlideIndices[t.id] = 0);
+
+        /* ==========================================================================
+           2. DATA SET SOAL KUIS (20 SOAL PILIHAN GANDA LENGKAP DENGAN PEMBAHASAN)
+           ========================================================================== */
+        const quizQuestions = [
+            {
+                q: "1. Mengapa pengganjal ban (wheel chock) wajib dipasang sebelum melakukan pendongkrakan kendaraan?",
+                options: [
+                    "Agar suspensi mobil menjadi lebih empuk saat diangkat",
+                    "Untuk mencegah kendaraan menggelinding atau bergeser tidak sengaja",
+                    "Untuk menambah beban kendaraan di bagian belakang",
+                    "Sebagai tempat meletakkan baut roda yang dilepas"
+                ],
+                answer: 1,
+                explain: "Pengganjal ban dipasang pada roda yang berseberangan dengan roda yang diangkat untuk menahan gaya dorong geseran agar kendaraan tidak menggelinding saat posisi bodi miring."
+            },
+            {
+                q: "2. Prinsip fisika dasar apa yang diterapkan pada sistem kerja dongkrak hidrolik?",
+                options: [
+                    "Hukum Archimedes",
+                    "Hukum Newton III",
+                    "Hukum Pascal",
+                    "Hukum Ohm"
+                ],
+                answer: 2,
+                explain: "Dongkrak hidrolik menerapkan Hukum Pascal, di mana tekanan yang diberikan pada fluida cair di silinder kecil akan diteruskan ke segala arah secara merata menuju silinder besar."
+            },
+            {
+                q: "3. Menurut prosedur K3 otomotif, manakah tindakan yang SANGAT DILARANG saat menggunakan dongkrak?",
+                options: [
+                    "Menggunakan pengganjal ban sebelum mendongkrak",
+                    "Melakukan pekerjaan di bawah kolong mobil yang hanya ditopang dongkrak",
+                    "Mencari titik tumpu jacking point pada sasis utama",
+                    "Mengunci tuas katup pelepas hidrolik sebelum memompa"
+                ],
+                answer: 1,
+                explain: "Dilarang keras melakukan perbaikan di bawah mobil yang hanya ditopang dongkrak karena tekanan hidrolik dapat bocor mendadak. Pekerjaan kolong wajib menggunakan Jack Stand."
+            },
+            {
+                q: "4. Peralatan pengaman mekanis yang bertugas menopang beban kendaraan secara konstan setelah diangkat dongkrak adalah...",
+                options: [
+                    "Engine Crane",
+                    "Jack Stand",
+                    "Pistol Stamped",
+                    "Webbing Sling"
+                ],
+                answer: 1,
+                explain: "Jack Stand adalah penopang mekanis berkaki kokoh yang dirancang menahan beban kendaraan secara statis dan aman dalam waktu lama."
+            },
+            {
+                q: "5. Mengapa Jack Stand jauh lebih aman digunakan untuk pekerjaan kolong dibandingkan dongkrak hidrolik?",
+                options: [
+                    "Jack Stand menggunakan penokoh oli bertekanan tinggi",
+                    "Jack Stand ditopang oleh mekanisme batang/gerigi mekanis padat tanpa risiko kebocoran fluida",
+                    "Jack Stand memiliki roda fleksibel untuk menggeser bodi mobil",
+                    "Jack Stand dapat naik dan turun secara otomatis"
+                ],
+                answer: 1,
+                explain: "Jack Stand bekerja murni secara mekanis (pin lock / ratchet), sehingga tidak berisiko kempes atau turun mendadak akibat bocornya seal hidrolik."
+            },
+            {
+                q: "6. Jenis Car Lift yang paling sesuai dan direkomendasikan untuk pekerjaan penyetelan kelurusan roda (Spooring / Wheel Alignment) adalah...",
+                options: [
+                    "Single Post Car Lift",
+                    "Two Post Car Lift",
+                    "Four Post Car Lift",
+                    "Scissor Car Lift Portabel"
+                ],
+                answer: 2,
+                explain: "Four Post Car Lift memiliki 4 tiang landasan datar yang menopang ke-4 roda mobil secara sejajar sempurna, ideal untuk pengukuran geometri alignment/spooring."
+            },
+            {
+                q: "7. Fitur keamanan utama yang HARUS diaktifkan pada Two Post Car Lift sebelum teknisi bekerja di bawah bodi mobil adalah...",
+                options: [
+                    "Emergency Stop Button",
+                    "Mekanisme pengunci pengaman mekanis (Safety Lock Bar/Latch)",
+                    "Remote control nirkabel",
+                    "Katup buang udara compressed"
+                ],
+                answer: 1,
+                explain: "Setelah mobil diangkat pada posisi kerja, pengunci pengaman mekanis (safety lock bar) wajib diturunkan hingga menyangkut agar bodi tidak merosot jika tekanan hidrolik hilang."
+            },
+            {
+                q: "8. Car Lift jenis apakah yang umumnya paling sering ditemui pada stasiun pencucian mobil (car wash)?",
+                options: [
+                    "Single Post Car Lift",
+                    "Two Post Car Lift",
+                    "Four Post Car Lift",
+                    "Engine Crane Lift"
+                ],
+                answer: 0,
+                explain: "Single Post Car Lift hanya memiliki 1 tiang silinder utama di tengah, memungkinkan bodi mobil diputar 360 derajat untuk kemudahan pencucian area kolong."
+            },
+            {
+                q: "9. Komponen penahan roda depan pada Bike Lift yang berfungsi mencengkeram ban motor saat diangkat dinamakan...",
+                options: [
+                    "Safety Pin Lock",
+                    "Front Wheel Vise (Ragum Ban Depan)",
+                    "Webbing Belt",
+                    "Hydraulic Ram"
+                ],
+                answer: 1,
+                explain: "Front Wheel Vise adalah penjepit/ragum khusus di ujung meja Bike Lift yang mengunci ban depan motor agar tidak miring atau jatuh saat dinaikkan."
+            },
+            {
+                q: "10. Peralatan yang dirancang khusus untuk mengangkat dan mengeluarkan unit mesin (engine block) dari dalam kap mobil adalah...",
+                options: [
+                    "Hydraulic Press",
+                    "Engine Crane",
+                    "Four Post Car Lift",
+                    "Jack Stand"
+                ],
+                answer: 1,
+                explain: "Engine Crane (derek hidrolik portabel) dilengkapi boom bermotor/hidrolik dan roda untuk mengangkat serta memindahkan mesin keluar dari kompartemen mobil."
+            },
+            {
+                q: "11. Sebelum mengangkat mesin menggunakan Engine Crane, hal penting apa yang wajib diperhatikan pada boom pengangkat?",
+                options: [
+                    "Warna cat pada tiang crane",
+                    "Panjang posisi ekstensi boom sesuai kapasitas beban (WLL) yang akan diangkat",
+                    "Ukuran diameter roda crane",
+                    "Jumlah oli pada tabung penyimpan"
+                ],
+                answer: 1,
+                explain: "Panjang ekstensi boom mempengaruhi batas beban maksimal (WLL). Semakin panjang boom dijulurkan keluar, semakin kecil beban maksimal yang boleh diangkat."
+            },
+            {
+                q: "12. Tali pelilit berbahan kain sintetis polyester yang kuat, lentur, dan tidak merusak permukaan benda halus saat pengangkatan disebut...",
+                options: [
+                    "Wire Rope Sling",
+                    "Webbing Sling",
+                    "Chain Sling",
+                    "Steel Cable"
+                ],
+                answer: 1,
+                explain: "Webbing Sling adalah tali pengemban berbahan serat polyester yang ringan dan halus sehingga mencegah goresan pada bodi/komponen mesin presisi."
+            },
+            {
+                q: "13. Istilah Working Load Limit (WLL) yang tertera pada rantai atau sling pengangkat mengindikasikan...",
+                options: [
+                    "Batas beban maksimal yang aman diangkat oleh alat",
+                    "Panjang total tali sling saat dibentangkan",
+                    "Berat bersih dari alat sling itu sendiri",
+                    "Kecepatan maksimal pengangkatan derek"
+                ],
+                answer: 0,
+                explain: "Working Load Limit (WLL) adalah batas kapasitas beban kerja aman yang diizinkan untuk diangkat oleh perlengkapan sling."
+            },
+            {
+                q: "14. Peralatan bengkel yang digunakan untuk melepas dan memasang bantalan (bearing), bushing, atau meluruskan poros yang bengkok adalah...",
+                options: [
+                    "Engine Stand",
+                    "Press Hidrolik (Hydraulic Press)",
+                    "Pistol Stamped",
+                    "Bike Lift"
+                ],
+                answer: 1,
+                explain: "Press Hidrolik dirancang untuk menghasilkan gaya tekan linier tinggi puluhan ton untuk memasang/melepas komponen bertoleransi ketat (press-fit)."
+            },
+            {
+                q: "15. Mengapa teknisi diwajibkan memakai kacamata pelindung (safety goggles) saat mengoperasikan Press Hidrolik?",
+                options: [
+                    "Untuk melindungi mata dari paparan cahaya lampu bengkel",
+                    "Untuk mengamati indikator manometer tekanan lebih jelas",
+                    "Mencegah risiko serpihan logam atau komponen terlempar akibat tekanan tinggi",
+                    "Merupakan syarat estetika teknisi otomotif"
+                ],
+                answer: 2,
+                explain: "Tekanan puluhan ton pada Press Hidrolik berisiko melempar benda kerja atau serpihan logam jika posisi benda tidak rata atau mengalami retak mendadak."
+            },
+            {
+                q: "16. Dudukan penopang yang memiliki kepala dapat diputar 360 derajat untuk memudahkan perakitan/overhaul mesin adalah...",
+                options: [
+                    "Engine Crane",
+                    "Engine Stand",
+                    "Jack Stand",
+                    "Scissor Lift"
+                ],
+                answer: 1,
+                explain: "Engine Stand menyangga blok mesin pada tiangnya dan dilengkapi revolving head yang dapat diputar 360 derajat agar seluruh bagian mesin mudah dijangkau."
+            },
+            {
+                q: "17. Alat pelumasan yang berfungsi menginjeksikan gemuk/stempet bertekanan ke dalam pentil nipple komponen bergerak dinamakan...",
+                options: [
+                    "Pistol Stamped (Grease Gun)",
+                    "Oil Can",
+                    "Air Duster",
+                    "Impact Wrench"
+                ],
+                answer: 0,
+                explain: "Pistol Stamped (Grease Gun) disain khusus untuk mendorong pelumas kental (grease) masuk menembus katup bola pada grease fitting (nipple)."
+            },
+            {
+                q: "18. Komponen kendaraan berikut ini yang memerlukan pelumasan rutin menggunakan Pistol Stamped (Grease Gun) adalah...",
+                options: [
+                    "Piringan cakram rem depan",
+                    "Universal Joint (U-Joint) poros propeler dan Ball Joint suspensi",
+                    "Batang busi dan ruang bakar",
+                    "Kaca spion luar"
+                ],
+                answer: 1,
+                explain: "U-Joint propeler, ball joint, dan tie-rod end dilengkapi nipple pelumasan yang membutuhkan gemuk segar bertekanan dari pistol stamped."
+            },
+            {
+                q: "19. Kombinasi peralatan bengkel yang paling ideal dan aman untuk melakukan pekerjaan pembongkaran transmisi mobil di kolong adalah...",
+                options: [
+                    "Dongkrak saja tanpa ganjal ban",
+                    "Dongkrak Hidrolik + Pengganjal Ban + Jack Stand",
+                    "Engine Stand + Pistol Stamped",
+                    "Single Post Lift tanpa pengunci"
+                ],
+                answer: 1,
+                explain: "Kombinasi Dongkrak (pengangkat awal), Ganjal Ban (penahan dorongan), dan Jack Stand (penopang statis aman) adalah standar K3 wajib dalam perbaikan otomotif."
+            },
+            {
+                q: "20. Tindakan perapian yang wajib dilakukan setelah selesai menginjeksikan gemuk dengan Pistol Stamped pada nipple adalah...",
+                options: [
+                    "Menyiram nipple dengan air detergen",
+                    "Mengelap sisa gemuk berlebih di luar nipple agar tidak menampung kotoran/debu",
+                    "Melepas pentil nipple dari sasis",
+                    "Membiarkan gemuk meluber di sekitar tapak ban"
+                ],
+                answer: 1,
+                explain: "Sisa gemuk yang meluber di luar nipple harus dilap bersih karena sifat lengketnya akan menarik pasir dan kotoran jalanan yang bisa merusak seal."
+            }
+        ];
+
+        /* ==========================================================================
+           3. APPLICATION STATE & INITIALIZATION WITH EXAM BROWSER SECURITY
+           ========================================================================== */
+        let currentSlideIndex = 0;
+        let isDragging = false;
+        let startPosX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
+        let userAnswers = new Array(quizQuestions.length).fill(null);
+        let studentName = "";
+        let activeShuffledQuestions = [];
+
+        // EXAM SECURITY STATES
+        let isExamActive = false;
+        let isExamSubmitted = false;
+        let violationCount = 0;
+        const MAX_VIOLATIONS = 3;
+        let TEACHER_PIN = "1234"; // Default Token Guru
+        const CACHE_KEY = "WORKSHOP_EQUIPMENT_QUIZ_CACHE_V1";
+
+        window.onload = function() {
+            renderCarousel();
+            renderToolsCards();
+            loadCacheOrInitializeQuiz();
+            setupCarouselEvents();
+            setupExamSecurityListeners();
+            
+            // Auto hide swipe overlay on first scroll or click
+            const overlay = document.getElementById('swipe-overlay');
+            const hideOverlay = () => {
+                if(overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => overlay.remove(), 500);
+                }
+            };
+            document.getElementById('carousel-viewport').addEventListener('touchstart', hideOverlay, {once: true});
+            document.getElementById('carousel-viewport').addEventListener('mousedown', hideOverlay, {once: true});
+        };
+
+        /* ==========================================================================
+           CACHE & STORAGE SYSTEM (LOCALSTORAGE PERSISTENCE)
+           ========================================================================== */
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadCacheOrInitializeQuiz() {
+            const savedData = localStorage.getItem(CACHE_KEY);
+            if (savedData) {
+                try {
+                    const cache = JSON.parse(savedData);
+                    studentName = cache.studentName || "";
+                    isExamSubmitted = cache.isExamSubmitted || false;
+                    violationCount = cache.violationCount || 0;
+                    userAnswers = cache.userAnswers || new Array(quizQuestions.length).fill(null);
+                    activeShuffledQuestions = cache.shuffledQuestions || generateShuffledQuestions();
+                } catch(e) {
+                    activeShuffledQuestions = generateShuffledQuestions();
+                }
+            } else {
+                activeShuffledQuestions = generateShuffledQuestions();
+            }
+
+            document.getElementById('student-name').value = studentName;
+            document.getElementById('display-student-name').innerText = studentName ? studentName : "-";
+            document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
+
+            renderQuizQuestions();
+
+            // KONSISTENSI KEAMANAN CACHE:
+            // Jika pelanggaran sudah 3x atau lebih, kuis LANGSUNG dikunci permanen
+            if (violationCount >= MAX_VIOLATIONS) {
+                isExamSubmitted = true;
+                isExamActive = false;
+                saveQuizToCache();
+                submitQuiz(null, true, true);
+            } else if (isExamSubmitted) {
+                restoreSubmittedQuizUI();
+            } else {
+                restoreActiveAnswersUI();
+                // Jika kuis sedang berjalan (nama terisi / pernah dijawab), aktifkan deteksi & paksa fullscreen
+                if (studentName || userAnswers.some(a => a !== null)) {
+                    isExamActive = true;
+                    showFullscreenLockModal();
+                }
+            }
+        }
+
+        function saveQuizToCache() {
+            const cachePayload = {
+                studentName: studentName,
+                isExamSubmitted: isExamSubmitted,
+                violationCount: violationCount,
+                userAnswers: userAnswers,
+                shuffledQuestions: activeShuffledQuestions
+            };
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cachePayload));
+        }
+
+        function generateShuffledQuestions() {
+            // Randomize order of questions for each user/session
+            const shuffled = shuffleArray(quizQuestions).map(q => {
+                // Also randomize order of options while tracking correct index
+                const originalOptionsWithIndex = q.options.map((opt, idx) => ({ text: opt, originalIdx: idx }));
+                const shuffledOpts = shuffleArray(originalOptionsWithIndex);
+                const newAnswerIndex = shuffledOpts.findIndex(o => o.originalIdx === q.answer);
+
+                return {
+                    q: q.q,
+                    options: shuffledOpts.map(o => o.text),
+                    answer: newAnswerIndex,
+                    explain: q.explain
+                };
+            });
+            return shuffled;
+        }
+
+        function handleNameInput(val) {
+            studentName = val.trim();
+            document.getElementById('display-student-name').innerText = studentName ? studentName : "-";
+            saveQuizToCache();
+        }
+
+        function restoreActiveAnswersUI() {
+            userAnswers.forEach((ansIdx, qIdx) => {
+                if (ansIdx !== null) {
+                    const radio = document.querySelector(`input[name="question-${qIdx}"][value="${ansIdx}"]`);
+                    if (radio) radio.checked = true;
+                }
+            });
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            document.getElementById('stat-answered').innerText = `${answeredCount}/20`;
+        }
+
+        function restoreSubmittedQuizUI() {
+            restoreActiveAnswersUI();
+            submitQuiz(null, true, true);
+        }
+
+        /* ==========================================================================
+           EXAM BROWSER SECURITY MECHANISMS (ANTI-CHEAT & LOCKDOWN)
+           ========================================================================== */
+        function startSecureExam() {
+            if (!studentName && !isExamSubmitted) {
+                switchTab('kuis');
+                document.getElementById('student-name').focus();
+                alert("Silakan masukkan Nama Lengkap Anda terlebih dahulu sebelum memulai ujian.");
+                return;
+            }
+
+            if (isExamSubmitted) {
+                switchTab('kuis');
+                return;
+            }
+
+            // Enter Fullscreen and activate lock
+            enterFullscreenMode();
+            isExamActive = true;
+            switchTab('kuis');
+        }
+
+        function enterFullscreenMode() {
+            const docEl = document.documentElement;
+            if (docEl.requestFullscreen) {
+                docEl.requestFullscreen().catch(() => {});
+            }
+        }
+
+        function showFullscreenLockModal() {
+            if (isExamSubmitted) return;
+            switchTab('kuis');
+            document.getElementById('modal-fullscreen-lock').classList.remove('hidden');
+        }
+
+        function resumeFullscreenExam() {
+            document.getElementById('modal-fullscreen-lock').classList.add('hidden');
+            enterFullscreenMode();
+            isExamActive = true;
+        }
+
+        function setupExamSecurityListeners() {
+            // 1. Block Page Reload / Tab Closing (beforeunload)
+            window.addEventListener('beforeunload', function (e) {
+                if (isExamActive && !isExamSubmitted) {
+                    e.preventDefault();
+                    e.returnValue = 'Peringatan: Kuis sedang berlangsung! Jika Anda keluar, jawaban akan hilang.';
+                    return e.returnValue;
+                }
+            });
+
+            // Detect Fullscreen Exit by User
+            document.addEventListener('fullscreenchange', function() {
+                if (!document.fullscreenElement && isExamActive && !isExamSubmitted) {
+                    registerViolation("Keluar dari Mode Layar Penuh (Fullscreen)!");
+                    showFullscreenLockModal();
+                }
+            });
+
+            // 2. Detect Tab Switch / Blur / Window Minimize
+            window.addEventListener('blur', function () {
+                if (isExamActive && !isExamSubmitted) {
+                    registerViolation("Meninggalkan layar ujian / berpindah tab!");
+                }
+            });
+
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden && isExamActive && !isExamSubmitted) {
+                    registerViolation("Membuka aplikasi atau tab lain!");
+                }
+            });
+
+            // 3. Block Right Click Context Menu
+            document.addEventListener('contextmenu', function (e) {
+                if (isExamActive) {
+                    e.preventDefault();
+                }
+            });
+
+            // 4. Block Key Combinations (F5, Ctrl+R, Ctrl+C, F12, Alt+Tab prevention)
+            document.addEventListener('keydown', function (e) {
+                if (isExamActive && !isExamSubmitted) {
+                    // Prevent F5, Ctrl+R, F12, Ctrl+Shift+I, Ctrl+C, Ctrl+V, Ctrl+U
+                    if (
+                        e.key === 'F5' || 
+                        e.key === 'F12' ||
+                        (e.ctrlKey && (e.key === 'r' || e.key === 'R' || e.key === 'c' || e.key === 'C' || e.key === 'v' || e.key === 'V' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) ||
+                        (e.altKey && e.key === 'Tab')
+                    ) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        registerViolation(`Mencoba jalan pintas keyboard (${e.key})`);
+                        return false;
+                    }
+                }
+            });
+        }
+
+        function showSecurityToast(msg) {
+            const toast = document.getElementById('toast-security-warning');
+            const text = document.getElementById('toast-warning-text');
+            if (!toast || !text) return;
+
+            text.innerText = msg;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        function registerViolation(reason) {
+            // Jika kuis sudah dikirim / dikunci, jangan tambah pelanggaran lagi
+            if (isExamSubmitted || !isExamActive) return;
+
+            violationCount++;
+            if (violationCount > MAX_VIOLATIONS) {
+                violationCount = MAX_VIOLATIONS;
+            }
+
+            document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
+            saveQuizToCache();
+
+            if (violationCount >= MAX_VIOLATIONS) {
+                isExamSubmitted = true;
+                isExamActive = false;
+                saveQuizToCache();
+                showSecurityToast(`Batas 3/3 Pelanggaran Terlampaui (${reason})! Kuis dikunci.`);
+                submitQuiz(new Event('submit'), true);
+            } else {
+                showSecurityToast(`Peringatan (${violationCount}/${MAX_VIOLATIONS}): ${reason}`);
+            }
+        }
+
+        /* ==========================================================================
+           4. NAVIGATION TAB SWITCHING LOGIC
+           ========================================================================== */
+        function switchTab(tab) {
+            const btnMateri = document.getElementById('nav-materi');
+            const btnKuis = document.getElementById('nav-kuis');
+            const secMateri = document.getElementById('section-materi');
+            const secKuis = document.getElementById('section-kuis');
+
+            if(tab === 'materi') {
+                if (isExamActive && !isExamSubmitted) {
+                    alert("Akses Materi Dikunci! Anda sedang dalam Mode Ujian Exam Browser. Selesaikan kuis terlebih dahulu.");
+                    return;
+                }
+                secMateri.classList.remove('hidden');
+                secKuis.classList.add('hidden');
+                btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md";
+                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center";
+            } else {
+                secMateri.classList.add('hidden');
+                secKuis.classList.remove('hidden');
+                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md flex items-center justify-center";
+                btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300";
+            }
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        /* ==========================================================================
+           5. CAROUSEL & SWIPE SLIDER LOGIC (MAIN HEADER CAROUSEL)
+           ========================================================================== */
+        function renderCarousel() {
+            const track = document.getElementById('carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+            track.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
+            toolsData.forEach((tool, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'w-full flex-shrink-0 p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6';
+                slide.innerHTML = `
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="relative img-zoom-container bg-slate-950/80 border border-slate-800 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden group">
+                            <img src="${tool.realImgs[0]}" alt="${tool.name}" class="w-full h-52 sm:h-60 object-cover rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/f77f00?text=${encodeURIComponent(tool.name)}';">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-3 text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/20 text-brand-orange text-xs font-bold rounded-md">
+                            <i class="${tool.iconClass} text-sm"></i>
+                            <span>PERLENGKAPAN #${tool.id}</span> • <span>${tool.category}</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold font-tech text-white flex items-center gap-3">
+                            <i class="${tool.iconClass} text-brand-orange"></i>
+                            <span>${tool.name}</span>
+                        </h3>
+                        <p class="text-xs text-brand-orange font-mono">${tool.english}</p>
+                        <p class="text-sm text-slate-300 leading-relaxed">${tool.pengertian}</p>
+                        <div class="pt-2 flex flex-wrap gap-3">
+                            <button onclick="scrollToTool(${tool.id})" class="px-4 py-2 bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-xs font-bold rounded-lg text-white transition-all shadow-md inline-flex items-center gap-2">
+                                Baca Detail & Cara Kerja <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-brand-orange w-8' : 'bg-slate-700'}`;
+                dot.onclick = () => goToSlide(index);
+                dotsContainer.appendChild(dot);
+            });
+
+            updateSlidePosition();
+        }
+
+        function updateSlidePosition() {
+            const track = document.getElementById('carousel-track');
+            const dots = document.getElementById('carousel-dots').children;
+            const caption = document.getElementById('slide-caption');
+            
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            Array.from(dots).forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.className = 'w-8 h-3 bg-brand-orange rounded-full transition-all duration-300';
+                } else {
+                    dot.className = 'w-3 h-3 bg-slate-700 hover:bg-slate-500 rounded-full transition-all duration-300';
+                }
+            });
+
+            const currentTool = toolsData[currentSlideIndex];
+            caption.innerHTML = `<span class="text-brand-orange font-bold font-tech">#${currentTool.id}</span> ${currentTool.name}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = toolsData.length - 1;
+            if (currentSlideIndex >= toolsData.length) currentSlideIndex = 0;
+            updateSlidePosition();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlidePosition();
+        }
+
+        // TOUCH & DRAG SWIPE HANDLERS
+        function setupCarouselEvents() {
+            const viewport = document.getElementById('carousel-viewport');
+            
+            // Touch Events
+            viewport.addEventListener('touchstart', touchStart);
+            viewport.addEventListener('touchend', touchEnd);
+            viewport.addEventListener('touchmove', touchMove);
+
+            // Mouse Drag Events
+            viewport.addEventListener('mousedown', touchStart);
+            viewport.addEventListener('mouseup', touchEnd);
+            viewport.addEventListener('mouseleave', touchEnd);
+            viewport.addEventListener('mousemove', touchMove);
+        }
+
+        function touchStart(event) {
+            isDragging = true;
+            startPosX = getPositionX(event);
+            animationID = requestAnimationFrame(animation);
+            document.getElementById('carousel-track').classList.remove('transition-transform');
+        }
+
+        function touchMove(event) {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                currentTranslate = prevTranslate + currentPosition - startPosX;
+            }
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            cancelAnimationFrame(animationID);
+            const track = document.getElementById('carousel-track');
+            track.classList.add('transition-transform');
+
+            const movedBy = currentTranslate - prevTranslate;
+
+            if (movedBy < -50 && currentSlideIndex < toolsData.length - 1) {
+                currentSlideIndex += 1;
+            }
+            if (movedBy > 50 && currentSlideIndex > 0) {
+                currentSlideIndex -= 1;
+            }
+
+            goToSlide(currentSlideIndex);
+            prevTranslate = 0;
+            currentTranslate = 0;
+        }
+
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+        }
+
+        function animation() {
+            if (isDragging) requestAnimationFrame(animation);
+        }
+
+        function scrollToTool(id) {
+            const el = document.getElementById(`tool-card-${id}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                el.classList.add('ring-2', 'ring-brand-orange');
+                setTimeout(() => el.classList.remove('ring-2', 'ring-brand-orange'), 2000);
+            }
+        }
+
+        /* ==========================================================================
+           6. RENDER MATERI CARDS (10 ITEMS WITH SWIPEABLE MULTI FOTO & ICON TITLES)
+           ========================================================================== */
+        function renderToolsCards() {
+            const container = document.getElementById('tools-container');
+            container.innerHTML = '';
+
+            toolsData.forEach(tool => {
+                const card = document.createElement('div');
+                card.id = `tool-card-${tool.id}`;
+                card.className = "tool-card bg-brand-card rounded-2xl border border-slate-800 p-6 shadow-xl flex flex-col justify-between space-y-6 transition-all duration-300 hover:border-slate-700";
+                
+                let usageListHTML = tool.penggunaan.map(step => `
+                    <li class="flex items-start gap-2 text-xs text-slate-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange mt-0.5 text-xs"></i>
+                        <span>${step}</span>
+                    </li>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <!-- Card Header with Icon Title -->
+                        <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 text-brand-orange flex items-center justify-center text-lg shadow-inner flex-shrink-0 mt-0.5">
+                                    <i class="${tool.iconClass}"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-brand-orange tracking-wider uppercase">${tool.category}</span>
+                                    <h3 class="text-xl font-bold font-tech text-white flex items-center gap-2">
+                                        ${tool.name}
+                                    </h3>
+                                    <p class="text-xs text-slate-400 font-mono">${tool.english}</p>
+                                </div>
+                            </div>
+                            <span class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-sm text-brand-orange font-tech flex-shrink-0">
+                                0${tool.id}
+                            </span>
+                        </div>
+
+                        <!-- Card Visual Section (Swipeable Multi-Foto Gallery) -->
+                        <div class="space-y-2">
+                            <div class="relative bg-slate-950 rounded-xl overflow-hidden border border-slate-800 group h-52">
+                                <!-- Swipeable track container for card photos -->
+                                <div id="card-gallery-track-${tool.id}" class="flex h-full transition-transform duration-300 ease-out">
+                                    ${tool.realImgs.map((imgUrl, imgIdx) => `
+                                        <div class="w-full flex-shrink-0 h-full relative img-zoom-container">
+                                            <img src="${imgUrl}" alt="${tool.name} Foto ${imgIdx+1}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/f77f00?text=${encodeURIComponent(tool.name)}';">
+                                        </div>
+                                    `).join('')}
+                                </div>
+
+                                <!-- Prev/Next Mini Buttons -->
+                                <button onclick="moveCardSlide(${tool.id}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all shadow-md active:scale-95">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="moveCardSlide(${tool.id}, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all shadow-md active:scale-95">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+                            </div>
+
+                            <!-- Photo Dots Indicator -->
+                            <div id="card-dots-${tool.id}" class="flex items-center justify-center gap-1.5 pt-1">
+                                ${tool.realImgs.map((_, dotIdx) => `
+                                    <button onclick="goToCardSlide(${tool.id}, ${dotIdx})" class="w-2 h-2 rounded-full transition-all duration-300 ${dotIdx === 0 ? 'bg-brand-orange w-5' : 'bg-slate-700'}"></button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Details Sections -->
+                        <div class="space-y-3 pt-2">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Pengertian
+                                </h4>
+                                <p class="text-xs text-slate-300 leading-relaxed">${tool.pengertian}</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-bullseye text-brand-orange mr-1"></i> Fungsi Utama
+                                </h4>
+                                <p class="text-xs text-slate-300 leading-relaxed">${tool.fungsi}</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-gears text-brand-orange mr-1"></i> Cara / Prinsip Kerja
+                                </h4>
+                                <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">${tool.caraKerja}</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                                    <i class="fa-solid fa-shield-halved text-brand-orange mr-1"></i> Prosedur Penggunaan & K3
+                                </h4>
+                                <ul class="space-y-2 bg-slate-900/30 p-3 rounded-lg border border-slate-800/50">
+                                    ${usageListHTML}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* CARD SWIPE GALLERY NAVIGATION FUNCTIONS */
+        function moveCardSlide(toolId, direction) {
+            const tool = toolsData.find(t => t.id === toolId);
+            if (!tool) return;
+            
+            let currentIndex = cardSlideIndices[toolId] || 0;
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = tool.realImgs.length - 1;
+            if (currentIndex >= tool.realImgs.length) currentIndex = 0;
+            
+            goToCardSlide(toolId, currentIndex);
+        }
+
+        function goToCardSlide(toolId, index) {
+            const tool = toolsData.find(t => t.id === toolId);
+            if (!tool) return;
+
+            cardSlideIndices[toolId] = index;
+            const track = document.getElementById(`card-gallery-track-${toolId}`);
+            const dots = document.getElementById(`card-dots-${toolId}`).children;
+
+            if (track) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            if (dots) {
+                Array.from(dots).forEach((dot, idx) => {
+                    if (idx === index) {
+                        dot.className = 'w-5 h-2 bg-brand-orange rounded-full transition-all duration-300';
+                    } else {
+                        dot.className = 'w-2 h-2 bg-slate-700 hover:bg-slate-500 rounded-full transition-all duration-300';
+                    }
+                });
+            }
+        }
+
+        function filterTools() {
+            const query = document.getElementById('search-tool').value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card');
+            
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /* ==========================================================================
+           7. RENDER & HANDLE KUIS 20 SOAL (EXAM BROWSER SECURE SUBMIT & TOKEN RESET)
+           ========================================================================== */
+        function renderQuizQuestions() {
+            const container = document.getElementById('questions-list');
+            container.innerHTML = '';
+
+            activeShuffledQuestions.forEach((item, index) => {
+                const qBox = document.createElement('div');
+                qBox.className = "bg-brand-card rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-lg space-y-4";
+                
+                let optionsHTML = item.options.map((opt, optIdx) => `
+                    <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all hover:bg-slate-900 group">
+                        <input type="radio" name="question-${index}" value="${optIdx}" onchange="selectAnswer(${index}, ${optIdx})" class="quiz-radio w-4 h-4 text-brand-orange bg-slate-800 border-slate-700 focus:ring-brand-orange focus:ring-offset-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-300 group-hover:text-white transition-colors">${opt}</span>
+                    </label>
+                `).join('');
+
+                qBox.innerHTML = `
+                    <div class="flex items-start justify-between gap-4">
+                        <h3 class="text-sm sm:text-base font-semibold text-slate-100 leading-snug"><span class="text-brand-orange font-bold font-tech mr-1">${index + 1}.</span> ${item.q.replace(/^\d+\.\s*/, '')}</h3>
+                    </div>
+                    <div class="space-y-2">
+                        ${optionsHTML}
+                    </div>
+                    <div id="feedback-${index}" class="hidden p-3 rounded-xl text-xs leading-relaxed border mt-2"></div>
+                `;
+                container.appendChild(qBox);
+            });
+        }
+
+        function selectAnswer(qIndex, optIndex) {
+            if (isExamSubmitted) return;
+            userAnswers[qIndex] = optIndex;
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            document.getElementById('stat-answered').innerText = `${answeredCount}/20`;
+            saveQuizToCache();
+        }
+
+        function submitQuiz(event, forceAutoSubmit = false, isRestoring = false) {
+            if (event) event.preventDefault();
+
+            if (!isRestoring && !studentName) {
+                alert("Harap masukkan Nama Lengkap Anda sebelum mengirim kuis!");
+                document.getElementById('student-name').focus();
+                return;
+            }
+
+            if (isExamSubmitted && !forceAutoSubmit && !isRestoring) {
+                alert("Kuis sudah dikirim! Anda tidak dapat mengirim ulang jawaban.");
+                return;
+            }
+
+            // Lock Exam State
+            isExamSubmitted = true;
+            isExamActive = false;
+            saveQuizToCache();
+
+            // Disable all radio buttons & submit button (Single Submit Protection)
+            const radios = document.querySelectorAll('.quiz-radio');
+            radios.forEach(r => r.disabled = true);
+            document.getElementById('student-name').disabled = true;
+            
+            const submitBtn = document.getElementById('btn-submit-quiz');
+            submitBtn.disabled = true;
+            submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-slate-800 text-slate-500 font-bold text-sm cursor-not-allowed border border-slate-700";
+            submitBtn.innerHTML = `<i class="fa-solid fa-lock mr-2"></i>Jawaban Terkunci (Sudah Dikirim)`;
+
+            document.getElementById('submit-chance-badge').className = "text-red-400 font-bold";
+            document.getElementById('submit-chance-badge').innerText = "0/1 (Terkunci)";
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung skor & tampilkan ulasan secara kondisional
+            activeShuffledQuestions.forEach((item, index) => {
+                const selected = userAnswers[index];
+                const feedbackEl = document.getElementById(`feedback-${index}`);
+                feedbackEl.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-800', 'text-emerald-300', 'bg-rose-950/60', 'border-rose-800', 'text-rose-300', 'bg-amber-950/60', 'border-amber-800', 'text-amber-300');
+
+                if (selected !== null) {
+                    answeredCount++;
+                    if (selected === item.answer) {
+                        score += 5; // 20 questions * 5 = 100 points
+                        feedbackEl.classList.add('bg-emerald-950/60', 'border-emerald-800', 'text-emerald-300');
+                        feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> <strong>Jawaban Benar!</strong> ${item.explain}`;
+                    } else {
+                        feedbackEl.classList.add('bg-rose-950/60', 'border-rose-800', 'text-rose-300');
+                        feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-400 mr-1.5"></i> <strong>Jawaban Salah.</strong> Jawaban yang benar adalah <strong>${item.options[item.answer]}</strong>.<br><span class="text-slate-300 mt-1 block">${item.explain}</span>`;
+                    }
+                } else {
+                    // Jika tidak dijawab apapun, atau hanya sebagian dijawab: Sembunyikan ulasan untuk soal tak dijawab
+                    feedbackEl.classList.add('hidden');
+                }
+            });
+
+            // Update UI Score
+            const statScore = document.getElementById('stat-score');
+            statScore.innerText = `${score}/100`;
+
+            const statusMsg = document.getElementById('quiz-status-msg');
+            if (answeredCount === 0) {
+                statusMsg.innerHTML = `<span class="text-red-400 font-bold">Kuis Terkunci! Anda mengirim kuis tanpa menjawab soal apapun. Skor: 0/100.</span>`;
+            } else if (answeredCount < activeShuffledQuestions.length) {
+                statusMsg.innerHTML = `<span class="text-amber-400 font-bold">Kuis Terkunci! Dijawab ${answeredCount}/${activeShuffledQuestions.length} soal. Skor: ${score}/100.</span> Ulasan hanya tampil untuk soal yang dijawab.`;
+            } else {
+                statusMsg.innerHTML = `<span class="text-emerald-400 font-bold">Kuis Terkunci & Selesai! Nama: ${studentName || 'Peserta'} | Skor: ${score}/100.</span> Seluruh ulasan ditampilkan di bawah.`;
+            }
+
+            // Scroll to top of quiz score board if submitting manually
+            if (!isRestoring) {
+                document.getElementById('quiz-scoreboard').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Exit Fullscreen if active
+            if (document.exitFullscreen && document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
+        }
+
+        /* TOKEN / PIN RESET MODAL FUNCTIONS */
+        function requestTeacherResetPin() {
+            document.getElementById('input-teacher-pin').value = '';
+            document.getElementById('pin-error-msg').classList.add('hidden');
+            document.getElementById('modal-security').classList.remove('hidden');
+        }
+
+        function closeSecurityModal() {
+            document.getElementById('modal-security').classList.add('hidden');
+        }
+
+        function verifyTeacherPin() {
+            const pinInput = document.getElementById('input-teacher-pin').value.trim();
+            if (pinInput === TEACHER_PIN) {
+                closeSecurityModal();
+                performFullQuizReset();
+                showSecurityToast("Reset Token Berhasil! Ujian dan Ulasan telah direset bersih.");
+            } else {
+                document.getElementById('pin-error-msg').classList.remove('hidden');
+            }
+        }
+
+        function performFullQuizReset() {
+            // 1. Hapus cache lokal secara menyeluruh
+            localStorage.removeItem(CACHE_KEY);
+            
+            // 2. Reset variabel state kuis & keamanan secara eksplisit
+            studentName = "";
+            userAnswers = new Array(quizQuestions.length).fill(null);
+            isExamSubmitted = false;
+            isExamActive = true; // Langsung aktifkan mode ujian untuk deteksi pelanggaran
+            violationCount = 0;
+            activeShuffledQuestions = generateShuffledQuestions();
+
+            // 3. Reset Tampilan UI Form & Input
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-name').disabled = false;
+            document.getElementById('display-student-name').innerText = '-';
+            document.getElementById('quiz-form').reset();
+            document.getElementById('stat-answered').innerText = '0/20';
+            document.getElementById('stat-score').innerText = '-';
+            document.getElementById('violation-count').innerText = `0 / ${MAX_VIOLATIONS}`;
+            document.getElementById('quiz-status-msg').innerText = 'Silakan jawab seluruh 20 pertanyaan.';
+
+            document.getElementById('submit-chance-badge').className = "text-emerald-400 font-bold";
+            document.getElementById('submit-chance-badge').innerText = "1/1 Masih Ada";
+
+            const submitBtn = document.getElementById('btn-submit-quiz');
+            submitBtn.disabled = false;
+            submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm transition-all shadow-lg shadow-brand-red/20";
+            submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane mr-2"></i>Kirim & Lihat Hasil (Sekali Klik)`;
+
+            // 4. Re-render soal baru yang teracak & buka kunci radio button
+            renderQuizQuestions();
+
+            // 5. Bersihkan seluruh elemen ulasan pembahasan (Feedback)
+            activeShuffledQuestions.forEach((_, index) => {
+                const feedbackEl = document.getElementById(`feedback-${index}`);
+                if (feedbackEl) {
+                    feedbackEl.className = "hidden p-3 rounded-xl text-xs leading-relaxed border mt-2";
+                    feedbackEl.innerHTML = "";
+                }
+            });
+
+            // 6. Simpan state bersih awal ke cache yang baru
+            saveQuizToCache();
+
+            // 7. Panggil Fullscreen atau munculkan Modal Lockscreen agar Layar Penuh terkunci & Pelanggaran terdeteksi dari 0
+            const docEl = document.documentElement;
+            if (docEl.requestFullscreen) {
+                docEl.requestFullscreen().then(() => {
+                    // Fullscreen berhasil diaktifkan
+                }).catch(() => {
+                    showFullscreenLockModal();
+                });
+            } else {
+                showFullscreenLockModal();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+<script src="./script.js"></script></body></html>

@@ -118,8 +118,9 @@
                     <button id="nav-materi" onclick="switchTab('materi')" class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md">
                         <i class="fa-solid fa-book-open mr-2"></i>Materi Perlengkapan
                     </button>
-                    <button id="nav-kuis" onclick="startSecureExam()" class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center">
-                        <i class="fa-solid fa-shield-halved mr-2 text-brand-orange"></i>Latihan Soal
+                    <button id="nav-kuis" onclick="attemptAccessQuiz()" class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center relative">
+                        <i id="quiz-nav-icon" class="fa-solid fa-lock mr-2 text-brand-orange"></i>Soal Latihan
+                        <span id="quiz-lock-badge" class="ml-2 text-[10px] bg-red-900/80 text-red-300 px-1.5 py-0.5 rounded border border-red-700">Terkunci</span>
                     </button>
                 </nav>
             </div>
@@ -151,7 +152,7 @@
 
                 <!-- CAROUSEL WRAPPER WITH SWIPE INSTRUCTION OVERLAY -->
                 <div class="relative group">
-                    <!-- SWIPE INSTRUCTION OVERLAY (Auto dismisses on interaction) -->
+                    <!-- SWIPE INSTRUCTION OVERLAY -->
                     <div id="swipe-overlay" class="absolute inset-0 z-20 bg-black/65 backdrop-blur-[2px] rounded-xl flex flex-col items-center justify-center text-white pointer-events-none transition-opacity duration-500">
                         <div class="text-4xl text-brand-orange mb-3 animate-swipe">
                             <i class="fa-solid fa-hand-pointer"></i>
@@ -168,7 +169,7 @@
                     <!-- CAROUSEL TRACK CONTAINER -->
                     <div id="carousel-viewport" class="overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900/90 relative">
                         <div id="carousel-track" class="carousel-track flex transition-transform duration-300 ease-out">
-                            <!-- Slides will be injected dynamically via JS -->
+                            <!-- Slides dynamic -->
                         </div>
                     </div>
 
@@ -208,15 +209,29 @@
 
                 <!-- CARDS CONTAINER (10 ITEMS) -->
                 <div id="tools-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <!-- Tool Cards Injected Dynamically by JavaScript -->
+                    <!-- Tool Cards Injected Dynamically -->
                 </div>
+            </section>
+
+            <!-- BUKA AKSES KUIS BANNER DI AKHIR MATERI -->
+            <section class="bg-gradient-to-r from-slate-900 via-brand-card to-slate-900 rounded-2xl border border-brand-orange/40 p-6 text-center space-y-4 shadow-xl">
+                <div class="w-12 h-12 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-tech text-white">Sudah Selesai Mencatat &amp; Mempelajari Seluruh Materi?</h3>
+                    <p class="text-xs text-slate-400 mt-1">Minta PIN / Password kepada Guru/Pengawas untuk membuka Latihan Soal Evaluasi.</p>
+                </div>
+                <button type="button" onclick="openQuizAccessModal()" class="px-8 py-3 bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-brand-red/20 inline-flex items-center gap-2">
+                    <i class="fa-solid fa-key"></i> Masukkan PIN Pembuka Latihan Soal
+                </button>
             </section>
         </div>
 
         <!-- SECTION KUIS INTERAKTIF (20 SOAL) -->
         <div id="section-kuis" class="hidden space-y-8 select-none">
             
-            <!-- EXAM BROWSER SECURITY BAR (Active during quiz) -->
+            <!-- EXAM BROWSER SECURITY BAR -->
             <div id="exam-security-bar" class="bg-red-950/80 border border-red-700/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold shadow-2xl backdrop-blur-md sticky top-4 z-50">
                 <div class="flex items-center gap-3">
                     <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
@@ -259,7 +274,7 @@
                     <input type="text" id="student-name" placeholder="Masukkan Nama Lengkap..." oninput="handleNameInput(this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 text-sm font-semibold focus:outline-none focus:border-brand-orange transition-colors">
                 </div>
 
-                <!-- Score Board (Hidden initially or updated live) -->
+                <!-- Score Board -->
                 <div id="quiz-scoreboard" class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 max-w-md mx-auto flex items-center justify-around">
                     <div class="text-center">
                         <p class="text-xs text-slate-400 uppercase font-semibold">Nama Peserta</p>
@@ -281,10 +296,10 @@
             <!-- Quiz Questions Form -->
             <form id="quiz-form" onsubmit="submitQuiz(event)" class="space-y-6">
                 <div id="questions-list" class="space-y-6">
-                    <!-- 20 Multiple Choice Questions Injected Dynamically -->
+                    <!-- 20 Multiple Choice Questions Dynamic -->
                 </div>
 
-                <!-- Submit / Reset Action Buttons -->
+                <!-- Action Buttons -->
                 <div class="sticky bottom-6 z-40 bg-brand-dark/90 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div id="quiz-status-msg" class="text-sm font-semibold text-slate-300">
                         Silakan jawab seluruh 20 pertanyaan. (Kesempatan Kirim: <span id="submit-chance-badge" class="text-emerald-400 font-bold">1/1 Masih Ada</span>)
@@ -303,6 +318,37 @@
 
     </main>
 
+    <!-- MODAL UNLOCK QUIZ ACCESS (PIN PEMBUKA AKSER LATIHAN SOAL) -->
+    <div id="modal-quiz-access" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="bg-brand-card border border-brand-orange/60 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl text-center">
+            <div class="w-16 h-16 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center mx-auto text-2xl animate-bounce">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold font-tech text-white">Masukkan PIN Pembuka Akses Kuis</h3>
+                <p class="text-xs text-slate-300 mt-1">Latihan soal dikunci agar siswa mencatat dan mempelajari materi terlebih dahulu. Minta PIN/Password kepada Guru Pengawas.</p>
+            </div>
+
+            <div class="space-y-3">
+                <input type="password" id="input-access-pin" maxlength="6" placeholder="Masukkan PIN Akses..." class="w-full text-center text-2xl font-tech tracking-widest bg-slate-900 border border-slate-700 rounded-xl py-3 text-white focus:outline-none focus:border-brand-orange">
+                <p id="access-pin-error-msg" class="text-xs text-red-400 hidden font-semibold">PIN Pembuka Akses Salah! Hubungi Guru Anda.</p>
+                <div class="text-[11px] text-slate-400 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800 text-left space-y-1">
+                    <p class="text-slate-200 font-bold"><i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Petunjuk Guru:</p>
+                    <p>* PIN akan diberikan setelah mencatat materi.</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button type="button" onclick="closeQuizAccessModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700">
+                    Batal
+                </button>
+                <button type="button" onclick="verifyAccessPin()" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white text-xs font-bold hover:opacity-90 shadow-lg">
+                    Buka Akses Kuis
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL POPUP PENGAWAS / TOKEN SECURITY RESET -->
     <div id="modal-security" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="bg-brand-card border border-slate-700 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl text-center">
@@ -318,7 +364,7 @@
                 <input type="password" id="input-teacher-pin" maxlength="6" placeholder="Masukkan PIN Token..." class="w-full text-center text-2xl font-tech tracking-widest bg-slate-900 border border-slate-700 rounded-xl py-3 text-white focus:outline-none focus:border-brand-orange">
                 <p id="pin-error-msg" class="text-xs text-red-400 hidden font-semibold">PIN Token Salah! Silakan hubungi Guru Pengawas.</p>
                 <div class="text-[11px] text-slate-500 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-                    *Default Token Guru: <span class="text-slate-300 font-mono font-bold">****</span>
+                    *Default Token Guru: <span class="text-slate-300 font-mono font-bold">****</span> / <span class="text-slate-300 font-mono font-bold">****</span>
                 </div>
             </div>
 
@@ -333,7 +379,7 @@
         </div>
     </div>
 
-    <!-- TOAST NOTIFIKASI PELANGGARAN (NON-BLOCKING SUBTITUTE UNTUK ALERT JS) -->
+    <!-- TOAST NOTIFIKASI PELANGGARAN -->
     <div id="toast-security-warning" class="fixed top-6 right-6 z-[60] bg-red-950 border-2 border-brand-red text-white px-5 py-4 rounded-2xl shadow-2xl max-w-sm hidden transition-all duration-300 transform translate-y-0">
         <div class="flex items-start gap-3">
             <div class="text-brand-orange text-2xl mt-0.5">
@@ -386,7 +432,7 @@
     <!-- JAVASCRIPT LOGIC -->
     <script>
         /* ==========================================================================
-           1. DATA SET PERALATAN (10 PERALATAN UTAMA DENGAN MULTI FOTO NYATA & IKON TITLE)
+           1. DATA SET PERALATAN (10 PERALATAN UTAMA)
            ========================================================================== */
         const toolsData = [
             {
@@ -601,12 +647,12 @@
             }
         ];
 
-        /* Map keeping track of active image index for each card gallery */
+        /* Map gallery index */
         const cardSlideIndices = {};
         toolsData.forEach(t => cardSlideIndices[t.id] = 0);
 
         /* ==========================================================================
-           2. DATA SET SOAL KUIS (20 SOAL PILIHAN GANDA LENGKAP DENGAN PEMBAHASAN)
+           2. DATA SET SOAL KUIS (20 SOAL PILIHAN GANDA)
            ========================================================================== */
         const quizQuestions = [
             {
@@ -832,7 +878,7 @@
         ];
 
         /* ==========================================================================
-           3. APPLICATION STATE & INITIALIZATION WITH EXAM BROWSER SECURITY
+           3. APPLICATION STATE & INITIALIZATION
            ========================================================================== */
         let currentSlideIndex = 0;
         let isDragging = false;
@@ -844,13 +890,18 @@
         let studentName = "";
         let activeShuffledQuestions = [];
 
-        // EXAM SECURITY STATES
+        // EXAM SECURITY & ACCESS STATES
+        let isQuizUnlocked = false; // Status apakah akses kuis sudah dibuka dengan PIN
         let isExamActive = false;
         let isExamSubmitted = false;
         let violationCount = 0;
         const MAX_VIOLATIONS = 3;
-        let TEACHER_PIN = "4570"; // Default Token Guru
-        const CACHE_KEY = "WORKSHOP_EQUIPMENT_QUIZ_CACHE_V1";
+        
+        // PIN DEFAULTS
+        const ACCESS_PIN = "4646";  // PIN Buka Kuis Pertama Kali
+        const TEACHER_PIN = "4570"; // PIN Reset Token Guru
+
+        const CACHE_KEY = "WORKSHOP_EQUIPMENT_QUIZ_CACHE_V2";
 
         window.onload = function() {
             renderCarousel();
@@ -859,7 +910,6 @@
             setupCarouselEvents();
             setupExamSecurityListeners();
             
-            // Auto hide swipe overlay on first scroll or click
             const overlay = document.getElementById('swipe-overlay');
             const hideOverlay = () => {
                 if(overlay) {
@@ -872,7 +922,61 @@
         };
 
         /* ==========================================================================
-           CACHE & STORAGE SYSTEM (LOCALSTORAGE PERSISTENCE)
+           4. QUIZ ACCESS SECURITY SYSTEM (PIN DARI GURU)
+           ========================================================================== */
+        function updateQuizAccessUI() {
+            const navIcon = document.getElementById('quiz-nav-icon');
+            const badge = document.getElementById('quiz-lock-badge');
+            
+            if (isQuizUnlocked) {
+                if (navIcon) navIcon.className = "fa-solid fa-shield-halved mr-2 text-emerald-400";
+                if (badge) {
+                    badge.className = "ml-2 text-[10px] bg-emerald-900/80 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-700";
+                    badge.innerText = "Terbuka";
+                }
+            } else {
+                if (navIcon) navIcon.className = "fa-solid fa-lock mr-2 text-brand-orange";
+                if (badge) {
+                    badge.className = "ml-2 text-[10px] bg-red-900/80 text-red-300 px-1.5 py-0.5 rounded border border-red-700";
+                    badge.innerText = "Terkunci";
+                }
+            }
+        }
+
+        function attemptAccessQuiz() {
+            if (isQuizUnlocked) {
+                startSecureExam();
+            } else {
+                openQuizAccessModal();
+            }
+        }
+
+        function openQuizAccessModal() {
+            document.getElementById('input-access-pin').value = '';
+            document.getElementById('access-pin-error-msg').classList.add('hidden');
+            document.getElementById('modal-quiz-access').classList.remove('hidden');
+        }
+
+        function closeQuizAccessModal() {
+            document.getElementById('modal-quiz-access').classList.add('hidden');
+        }
+
+        function verifyAccessPin() {
+            const inputPin = document.getElementById('input-access-pin').value.trim();
+            if (inputPin === ACCESS_PIN || inputPin === TEACHER_PIN) {
+                isQuizUnlocked = true;
+                saveQuizToCache();
+                updateQuizAccessUI();
+                closeQuizAccessModal();
+                showSecurityToast("Akses Kuis Latihan Berhasil Dibuka! Selamat mengerjakan.");
+                startSecureExam();
+            } else {
+                document.getElementById('access-pin-error-msg').classList.remove('hidden');
+            }
+        }
+
+        /* ==========================================================================
+           5. CACHE & STORAGE SYSTEM
            ========================================================================== */
         function shuffleArray(array) {
             const arr = [...array];
@@ -891,6 +995,7 @@
                     studentName = cache.studentName || "";
                     isExamSubmitted = cache.isExamSubmitted || false;
                     violationCount = cache.violationCount || 0;
+                    isQuizUnlocked = cache.isQuizUnlocked || false;
                     userAnswers = cache.userAnswers || new Array(quizQuestions.length).fill(null);
                     activeShuffledQuestions = cache.shuffledQuestions || generateShuffledQuestions();
                 } catch(e) {
@@ -904,10 +1009,9 @@
             document.getElementById('display-student-name').innerText = studentName ? studentName : "-";
             document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
 
+            updateQuizAccessUI();
             renderQuizQuestions();
 
-            // KONSISTENSI KEAMANAN CACHE:
-            // Jika pelanggaran sudah 3x atau lebih, kuis LANGSUNG dikunci permanen
             if (violationCount >= MAX_VIOLATIONS) {
                 isExamSubmitted = true;
                 isExamActive = false;
@@ -917,8 +1021,7 @@
                 restoreSubmittedQuizUI();
             } else {
                 restoreActiveAnswersUI();
-                // Jika kuis sedang berjalan (nama terisi / pernah dijawab), aktifkan deteksi & paksa fullscreen
-                if (studentName || userAnswers.some(a => a !== null)) {
+                if ((studentName || userAnswers.some(a => a !== null)) && isQuizUnlocked) {
                     isExamActive = true;
                     showFullscreenLockModal();
                 }
@@ -930,6 +1033,7 @@
                 studentName: studentName,
                 isExamSubmitted: isExamSubmitted,
                 violationCount: violationCount,
+                isQuizUnlocked: isQuizUnlocked,
                 userAnswers: userAnswers,
                 shuffledQuestions: activeShuffledQuestions
             };
@@ -937,9 +1041,7 @@
         }
 
         function generateShuffledQuestions() {
-            // Randomize order of questions for each user/session
             const shuffled = shuffleArray(quizQuestions).map(q => {
-                // Also randomize order of options while tracking correct index
                 const originalOptionsWithIndex = q.options.map((opt, idx) => ({ text: opt, originalIdx: idx }));
                 const shuffledOpts = shuffleArray(originalOptionsWithIndex);
                 const newAnswerIndex = shuffledOpts.findIndex(o => o.originalIdx === q.answer);
@@ -977,13 +1079,18 @@
         }
 
         /* ==========================================================================
-           EXAM BROWSER SECURITY MECHANISMS (ANTI-CHEAT & LOCKDOWN)
+           6. EXAM BROWSER SECURITY MECHANISMS
            ========================================================================== */
         function startSecureExam() {
+            if (!isQuizUnlocked) {
+                openQuizAccessModal();
+                return;
+            }
+
             if (!studentName && !isExamSubmitted) {
                 switchTab('kuis');
                 document.getElementById('student-name').focus();
-                alert("Silakan masukkan Nama Lengkap Anda terlebih dahulu sebelum memulai ujian.");
+                showSecurityToast("Masukkan Nama Lengkap terlebih dahulu sebelum ujian.");
                 return;
             }
 
@@ -992,7 +1099,6 @@
                 return;
             }
 
-            // Enter Fullscreen and activate lock
             enterFullscreenMode();
             isExamActive = true;
             switchTab('kuis');
@@ -1006,7 +1112,7 @@
         }
 
         function showFullscreenLockModal() {
-            if (isExamSubmitted) return;
+            if (isExamSubmitted || !isQuizUnlocked) return;
             switchTab('kuis');
             document.getElementById('modal-fullscreen-lock').classList.remove('hidden');
         }
@@ -1018,16 +1124,14 @@
         }
 
         function setupExamSecurityListeners() {
-            // 1. Block Page Reload / Tab Closing (beforeunload)
             window.addEventListener('beforeunload', function (e) {
                 if (isExamActive && !isExamSubmitted) {
                     e.preventDefault();
-                    e.returnValue = 'Peringatan: Kuis sedang berlangsung! Jika Anda keluar, jawaban akan hilang.';
+                    e.returnValue = 'Peringatan: Kuis sedang berlangsung! Jawaban bisa hilang.';
                     return e.returnValue;
                 }
             });
 
-            // Detect Fullscreen Exit by User
             document.addEventListener('fullscreenchange', function() {
                 if (!document.fullscreenElement && isExamActive && !isExamSubmitted) {
                     registerViolation("Keluar dari Mode Layar Penuh (Fullscreen)!");
@@ -1035,7 +1139,6 @@
                 }
             });
 
-            // 2. Detect Tab Switch / Blur / Window Minimize
             window.addEventListener('blur', function () {
                 if (isExamActive && !isExamSubmitted) {
                     registerViolation("Meninggalkan layar ujian / berpindah tab!");
@@ -1048,17 +1151,12 @@
                 }
             });
 
-            // 3. Block Right Click Context Menu
             document.addEventListener('contextmenu', function (e) {
-                if (isExamActive) {
-                    e.preventDefault();
-                }
+                if (isExamActive) e.preventDefault();
             });
 
-            // 4. Block Key Combinations (F5, Ctrl+R, Ctrl+C, F12, Alt+Tab prevention)
             document.addEventListener('keydown', function (e) {
                 if (isExamActive && !isExamSubmitted) {
-                    // Prevent F5, Ctrl+R, F12, Ctrl+Shift+I, Ctrl+C, Ctrl+V, Ctrl+U
                     if (
                         e.key === 'F5' || 
                         e.key === 'F12' ||
@@ -1088,13 +1186,10 @@
         }
 
         function registerViolation(reason) {
-            // Jika kuis sudah dikirim / dikunci, jangan tambah pelanggaran lagi
             if (isExamSubmitted || !isExamActive) return;
 
             violationCount++;
-            if (violationCount > MAX_VIOLATIONS) {
-                violationCount = MAX_VIOLATIONS;
-            }
+            if (violationCount > MAX_VIOLATIONS) violationCount = MAX_VIOLATIONS;
 
             document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
             saveQuizToCache();
@@ -1111,7 +1206,7 @@
         }
 
         /* ==========================================================================
-           4. NAVIGATION TAB SWITCHING LOGIC
+           7. NAVIGATION TAB SWITCHING
            ========================================================================== */
         function switchTab(tab) {
             const btnMateri = document.getElementById('nav-materi');
@@ -1121,24 +1216,28 @@
 
             if(tab === 'materi') {
                 if (isExamActive && !isExamSubmitted) {
-                    alert("Akses Materi Dikunci! Anda sedang dalam Mode Ujian Exam Browser. Selesaikan kuis terlebih dahulu.");
+                    showSecurityToast("Akses Materi Dikunci selama Mode Ujian!");
                     return;
                 }
                 secMateri.classList.remove('hidden');
                 secKuis.classList.add('hidden');
                 btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md";
-                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center";
+                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center relative";
             } else {
+                if (!isQuizUnlocked) {
+                    openQuizAccessModal();
+                    return;
+                }
                 secMateri.classList.add('hidden');
                 secKuis.classList.remove('hidden');
-                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md flex items-center justify-center";
+                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md flex items-center justify-center relative";
                 btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300";
             }
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
         /* ==========================================================================
-           5. CAROUSEL & SWIPE SLIDER LOGIC (MAIN HEADER CAROUSEL)
+           8. CAROUSEL & SWIPE SLIDER LOGIC
            ========================================================================== */
         function renderCarousel() {
             const track = document.getElementById('carousel-track');
@@ -1215,16 +1314,12 @@
             updateSlidePosition();
         }
 
-        // TOUCH & DRAG SWIPE HANDLERS
         function setupCarouselEvents() {
             const viewport = document.getElementById('carousel-viewport');
-            
-            // Touch Events
             viewport.addEventListener('touchstart', touchStart);
             viewport.addEventListener('touchend', touchEnd);
             viewport.addEventListener('touchmove', touchMove);
 
-            // Mouse Drag Events
             viewport.addEventListener('mousedown', touchStart);
             viewport.addEventListener('mouseup', touchEnd);
             viewport.addEventListener('mouseleave', touchEnd);
@@ -1283,7 +1378,7 @@
         }
 
         /* ==========================================================================
-           6. RENDER MATERI CARDS (10 ITEMS WITH SWIPEABLE MULTI FOTO & ICON TITLES)
+           9. RENDER MATERI CARDS
            ========================================================================== */
         function renderToolsCards() {
             const container = document.getElementById('tools-container');
@@ -1303,7 +1398,6 @@
 
                 card.innerHTML = `
                     <div class="space-y-4">
-                        <!-- Card Header with Icon Title -->
                         <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
                             <div class="flex items-start gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 text-brand-orange flex items-center justify-center text-lg shadow-inner flex-shrink-0 mt-0.5">
@@ -1322,10 +1416,8 @@
                             </span>
                         </div>
 
-                        <!-- Card Visual Section (Swipeable Multi-Foto Gallery) -->
                         <div class="space-y-2">
                             <div class="relative bg-slate-950 rounded-xl overflow-hidden border border-slate-800 group h-52">
-                                <!-- Swipeable track container for card photos -->
                                 <div id="card-gallery-track-${tool.id}" class="flex h-full transition-transform duration-300 ease-out">
                                     ${tool.realImgs.map((imgUrl, imgIdx) => `
                                         <div class="w-full flex-shrink-0 h-full relative img-zoom-container">
@@ -1334,7 +1426,6 @@
                                     `).join('')}
                                 </div>
 
-                                <!-- Prev/Next Mini Buttons -->
                                 <button onclick="moveCardSlide(${tool.id}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all shadow-md active:scale-95">
                                     <i class="fa-solid fa-chevron-left text-xs"></i>
                                 </button>
@@ -1343,7 +1434,6 @@
                                 </button>
                             </div>
 
-                            <!-- Photo Dots Indicator -->
                             <div id="card-dots-${tool.id}" class="flex items-center justify-center gap-1.5 pt-1">
                                 ${tool.realImgs.map((_, dotIdx) => `
                                     <button onclick="goToCardSlide(${tool.id}, ${dotIdx})" class="w-2 h-2 rounded-full transition-all duration-300 ${dotIdx === 0 ? 'bg-brand-orange w-5' : 'bg-slate-700'}"></button>
@@ -1351,7 +1441,6 @@
                             </div>
                         </div>
 
-                        <!-- Details Sections -->
                         <div class="space-y-3 pt-2">
                             <div>
                                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
@@ -1389,7 +1478,6 @@
             });
         }
 
-        /* CARD SWIPE GALLERY NAVIGATION FUNCTIONS */
         function moveCardSlide(toolId, direction) {
             const tool = toolsData.find(t => t.id === toolId);
             if (!tool) return;
@@ -1410,9 +1498,7 @@
             const track = document.getElementById(`card-gallery-track-${toolId}`);
             const dots = document.getElementById(`card-dots-${toolId}`).children;
 
-            if (track) {
-                track.style.transform = `translateX(-${index * 100}%)`;
-            }
+            if (track) track.style.transform = `translateX(-${index * 100}%)`;
 
             if (dots) {
                 Array.from(dots).forEach((dot, idx) => {
@@ -1440,7 +1526,7 @@
         }
 
         /* ==========================================================================
-           7. RENDER & HANDLE KUIS 20 SOAL (EXAM BROWSER SECURE SUBMIT & TOKEN RESET)
+           10. RENDER & HANDLE KUIS (EXAM BROWSER SECURE SUBMIT)
            ========================================================================== */
         function renderQuizQuestions() {
             const container = document.getElementById('questions-list');
@@ -1482,22 +1568,20 @@
             if (event) event.preventDefault();
 
             if (!isRestoring && !studentName) {
-                alert("Harap masukkan Nama Lengkap Anda sebelum mengirim kuis!");
+                showSecurityToast("Harap masukkan Nama Lengkap Anda sebelum mengirim kuis!");
                 document.getElementById('student-name').focus();
                 return;
             }
 
             if (isExamSubmitted && !forceAutoSubmit && !isRestoring) {
-                alert("Kuis sudah dikirim! Anda tidak dapat mengirim ulang jawaban.");
+                showSecurityToast("Kuis sudah dikirim!");
                 return;
             }
 
-            // Lock Exam State
             isExamSubmitted = true;
             isExamActive = false;
             saveQuizToCache();
 
-            // Disable all radio buttons & submit button (Single Submit Protection)
             const radios = document.querySelectorAll('.quiz-radio');
             radios.forEach(r => r.disabled = true);
             document.getElementById('student-name').disabled = true;
@@ -1513,16 +1597,16 @@
             let score = 0;
             let answeredCount = 0;
 
-            // Hitung skor & tampilkan ulasan secara kondisional
             activeShuffledQuestions.forEach((item, index) => {
                 const selected = userAnswers[index];
                 const feedbackEl = document.getElementById(`feedback-${index}`);
+                if (!feedbackEl) return;
                 feedbackEl.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-800', 'text-emerald-300', 'bg-rose-950/60', 'border-rose-800', 'text-rose-300', 'bg-amber-950/60', 'border-amber-800', 'text-amber-300');
 
                 if (selected !== null) {
                     answeredCount++;
                     if (selected === item.answer) {
-                        score += 5; // 20 questions * 5 = 100 points
+                        score += 5;
                         feedbackEl.classList.add('bg-emerald-950/60', 'border-emerald-800', 'text-emerald-300');
                         feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> <strong>Jawaban Benar!</strong> ${item.explain}`;
                     } else {
@@ -1530,12 +1614,10 @@
                         feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-400 mr-1.5"></i> <strong>Jawaban Salah.</strong> Jawaban yang benar adalah <strong>${item.options[item.answer]}</strong>.<br><span class="text-slate-300 mt-1 block">${item.explain}</span>`;
                     }
                 } else {
-                    // Jika tidak dijawab apapun, atau hanya sebagian dijawab: Sembunyikan ulasan untuk soal tak dijawab
                     feedbackEl.classList.add('hidden');
                 }
             });
 
-            // Update UI Score
             const statScore = document.getElementById('stat-score');
             statScore.innerText = `${score}/100`;
 
@@ -1548,12 +1630,10 @@
                 statusMsg.innerHTML = `<span class="text-emerald-400 font-bold">Kuis Terkunci & Selesai! Nama: ${studentName || 'Peserta'} | Skor: ${score}/100.</span> Seluruh ulasan ditampilkan di bawah.`;
             }
 
-            // Scroll to top of quiz score board if submitting manually
             if (!isRestoring) {
                 document.getElementById('quiz-scoreboard').scrollIntoView({ behavior: 'smooth' });
             }
 
-            // Exit Fullscreen if active
             if (document.exitFullscreen && document.fullscreenElement) {
                 document.exitFullscreen().catch(() => {});
             }
@@ -1572,28 +1652,26 @@
 
         function verifyTeacherPin() {
             const pinInput = document.getElementById('input-teacher-pin').value.trim();
-            if (pinInput === TEACHER_PIN) {
+            if (pinInput === TEACHER_PIN || pinInput === ACCESS_PIN) {
                 closeSecurityModal();
                 performFullQuizReset();
-                showSecurityToast("Reset Token Berhasil! Ujian dan Ulasan telah direset bersih.");
+                showSecurityToast("Reset Token Berhasil! Kuis dapat dikerjakan kembali.");
             } else {
                 document.getElementById('pin-error-msg').classList.remove('hidden');
             }
         }
 
         function performFullQuizReset() {
-            // 1. Hapus cache lokal secara menyeluruh
             localStorage.removeItem(CACHE_KEY);
             
-            // 2. Reset variabel state kuis & keamanan secara eksplisit
             studentName = "";
             userAnswers = new Array(quizQuestions.length).fill(null);
             isExamSubmitted = false;
-            isExamActive = true; // Langsung aktifkan mode ujian untuk deteksi pelanggaran
+            isExamActive = true;
+            isQuizUnlocked = true;
             violationCount = 0;
             activeShuffledQuestions = generateShuffledQuestions();
 
-            // 3. Reset Tampilan UI Form & Input
             document.getElementById('student-name').value = '';
             document.getElementById('student-name').disabled = false;
             document.getElementById('display-student-name').innerText = '-';
@@ -1611,10 +1689,9 @@
             submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm transition-all shadow-lg shadow-brand-red/20";
             submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane mr-2"></i>Kirim & Lihat Hasil (Sekali Klik)`;
 
-            // 4. Re-render soal baru yang teracak & buka kunci radio button
             renderQuizQuestions();
+            updateQuizAccessUI();
 
-            // 5. Bersihkan seluruh elemen ulasan pembahasan (Feedback)
             activeShuffledQuestions.forEach((_, index) => {
                 const feedbackEl = document.getElementById(`feedback-${index}`);
                 if (feedbackEl) {
@@ -1623,21 +1700,8 @@
                 }
             });
 
-            // 6. Simpan state bersih awal ke cache yang baru
             saveQuizToCache();
-
-            // 7. Panggil Fullscreen atau munculkan Modal Lockscreen agar Layar Penuh terkunci & Pelanggaran terdeteksi dari 0
-            const docEl = document.documentElement;
-            if (docEl.requestFullscreen) {
-                docEl.requestFullscreen().then(() => {
-                    // Fullscreen berhasil diaktifkan
-                }).catch(() => {
-                    showFullscreenLockModal();
-                });
-            } else {
-                showFullscreenLockModal();
-            }
-
+            enterFullscreenMode();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

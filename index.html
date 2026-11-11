@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class=""><head><script>window.livecodes = window.livecodes || {};</script><title>Materi Alat Perlengkapan Bengkel [X-OTO]</title><meta name="title" content="Materi Alat Perlengkapan Bengkel [X-OTO]"><meta charset="UTF-8">
+<html lang="en" class=""><head><script>window.livecodes = window.livecodes || {};</script><title>Materi Alat Perlengkapan Bengkel X-OTO</title><meta name="title" content="Materi Alat Perlengkapan Bengkel X-OTO"><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js" async=""></script><script type="importmap">{
   "imports": {}
 }</script></head><body>
-<script>window.livecodes = window.livecodes || {};</script><title>Materi Alat Perlengkapan Bengkel</title><meta name="title" content="Materi Alat Perlengkapan Bengkel"><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js" async=""></script>
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modul Interaktif: Alat Perlengkapan Bengkel (Workshop Equipment)</title>
+    <title>Modul Interaktif: Alat Perlengkapan Bengkel (Workshop Equipment) X-OTO</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -18,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Orbitron:wght@600;800&amp;display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -39,6 +38,12 @@
         }
     </script>
     <style>
+        /* Force dark background for body to prevent FOUC / white flashes */
+        html, body {
+            background-color: #12141d !important;
+            color: #f8f9fa;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -85,21 +90,12 @@
         .animate-swipe {
             animation: swipeAnimation 2.2s infinite ease-in-out;
         }
-
-        /* Subtle Pulse Effect */
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-        .glow-effect {
-            animation: pulseGlow 3s infinite;
-        }
     </style>
 
 
 
     <!-- HEADER & NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
                 <!-- Logo & Title -->
@@ -111,7 +107,7 @@
                         <h1 class="text-xl sm:text-2xl font-extrabold font-tech tracking-wide bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             ALAT PERLENGKAPAN BENGKEL
                         </h1>
-                        <p class="text-xs text-slate-400 font-medium">Modul Materi Online untuk X-OTO</p>
+                        <p class="text-xs text-slate-400 font-medium">Modul Pembelajaran Interaktif Otomotif [X-OTO]</p>
                     </div>
                 </div>
 
@@ -222,7 +218,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-bold font-tech text-white">Sudah Selesai Mencatat &amp; Mempelajari Seluruh Materi?</h3>
-                    <p class="text-xs text-slate-400 mt-1">Minta PIN / Password kepada Guru/Pengawas untuk membuka Latihan Soal Evaluasi.</p>
+                    <p class="text-xs text-slate-400 mt-1">Minta PIN / Token kepada Guru/Pengawas untuk membuka Latihan Soal Evaluasi.</p>
                 </div>
                 <button type="button" onclick="openQuizAccessModal()" class="px-8 py-3 bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-brand-red/20 inline-flex items-center gap-2">
                     <i class="fa-solid fa-key"></i> Masukkan PIN Pembuka Latihan Soal
@@ -234,14 +230,14 @@
         <div id="section-kuis" class="hidden space-y-8 select-none">
             
             <!-- EXAM BROWSER SECURITY BAR -->
-            <div id="exam-security-bar" class="bg-red-950/80 border border-red-700/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold shadow-2xl backdrop-blur-md sticky top-4 z-50">
+            <div id="exam-security-bar" class="bg-red-950/80 border border-red-700/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold shadow-2xl backdrop-blur-md sticky top-4 z-40">
                 <div class="flex items-center gap-3">
                     <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
                     <div>
                         <p class="text-white font-bold font-tech text-sm flex items-center gap-2">
                             <i class="fa-solid fa-lock text-brand-orange"></i> PERINGATAN UNTUK SISWA
                         </p>
-                        <p class="text-red-300">Dilarang pindah tab, buka jendela lain, atau mereload halaman!</p>
+                        <p class="text-red-300">Dilarang pindah tab, buka jendela lain, atau berpindah ke aplikasi lain!</p>
                     </div>
                 </div>
 
@@ -302,13 +298,13 @@
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="sticky bottom-6 z-40 bg-brand-dark/90 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="sticky bottom-6 z-30 bg-brand-dark/90 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div id="quiz-status-msg" class="text-sm font-semibold text-slate-300">
                         Silakan jawab seluruh 20 pertanyaan. (Kesempatan Kirim: <span id="submit-chance-badge" class="text-emerald-400 font-bold">1/1 Masih Ada</span>)
                     </div>
                     <div class="flex items-center gap-3 w-full sm:w-auto">
                         <button type="button" onclick="requestTeacherResetPin()" class="flex-1 sm:flex-none px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition-all border border-slate-700">
-                            <i class="fa-solid fa-lock mr-2 text-brand-orange"></i>Reset Kuis (Butuh PIN)
+                            <i class="fa-solid fa-lock mr-2 text-brand-orange"></i>Reset via Token
                         </button>
                         <button type="submit" id="btn-submit-quiz" class="flex-1 sm:flex-none px-8 py-3 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm transition-all shadow-lg shadow-brand-red/20">
                             <i class="fa-solid fa-paper-plane mr-2"></i>Kirim &amp; Lihat Hasil (Sekali Klik)
@@ -320,7 +316,7 @@
 
     </main>
 
-    <!-- MODAL UNLOCK QUIZ ACCESS (PIN PEMBUKA AKSER LATIHAN SOAL) -->
+    <!-- MODAL UNLOCK QUIZ ACCESS -->
     <div id="modal-quiz-access" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="bg-brand-card border border-brand-orange/60 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl text-center">
             <div class="w-16 h-16 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center mx-auto text-2xl animate-bounce">
@@ -328,15 +324,15 @@
             </div>
             <div>
                 <h3 class="text-xl font-bold font-tech text-white">Masukkan PIN Pembuka Akses Kuis</h3>
-                <p class="text-xs text-slate-300 mt-1">Latihan soal dikunci agar siswa mencatat dan mempelajari materi terlebih dahulu. Minta PIN/Password kepada Guru Pengawas.</p>
+                <p class="text-xs text-slate-300 mt-1">Latihan soal dikunci agar siswa mencatat materi terlebih dahulu. Minta PIN/Token kepada Guru Pengawas.</p>
             </div>
 
             <div class="space-y-3">
                 <input type="password" id="input-access-pin" maxlength="6" placeholder="Masukkan PIN Akses..." class="w-full text-center text-2xl font-tech tracking-widest bg-slate-900 border border-slate-700 rounded-xl py-3 text-white focus:outline-none focus:border-brand-orange">
                 <p id="access-pin-error-msg" class="text-xs text-red-400 hidden font-semibold">PIN Pembuka Akses Salah! Hubungi Guru Anda.</p>
                 <div class="text-[11px] text-slate-400 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800 text-left space-y-1">
-                    <p class="text-slate-200 font-bold"><i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Petunjuk Guru:</p>
-                    <p>* PIN akan diberikan setelah mencatat materi.</p>
+                    <p class="text-slate-200 font-bold"><i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Petunjuk Pengawasan:</p>
+                    <p>* PIN/Token diserahkan oleh Guru Pengawas Ujian X-OTO.</p>
                 </div>
             </div>
 
@@ -359,14 +355,15 @@
             </div>
             <div>
                 <h3 class="text-xl font-bold font-tech text-white">Verifikasi TOKEN Pengawas / Guru</h3>
-                <p class="text-xs text-slate-400 mt-1">Masukkan PIN 4 digit untuk mereset kuis atau membuka kembali akses kuis.</p>
+                <p class="text-xs text-slate-400 mt-1">Masukkan PIN 4 digit untuk membuka penguncian kuis atau mereset pengerjaan.</p>
             </div>
 
             <div class="space-y-3">
                 <input type="password" id="input-teacher-pin" maxlength="6" placeholder="Masukkan PIN Token..." class="w-full text-center text-2xl font-tech tracking-widest bg-slate-900 border border-slate-700 rounded-xl py-3 text-white focus:outline-none focus:border-brand-orange">
                 <p id="pin-error-msg" class="text-xs text-red-400 hidden font-semibold">PIN Token Salah! Silakan hubungi Guru Pengawas.</p>
-                <div class="text-[11px] text-slate-500 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-                    *Default Token Guru: <span class="text-slate-300 font-mono font-bold">****</span> / <span class="text-slate-300 font-mono font-bold">****</span>
+                <div class="text-[11px] text-slate-400 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800 text-left">
+                    <p class="text-slate-200 font-bold mb-1"><i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Petunjuk Pengawasan:</p>
+                    <p>* PIN/Token diserahkan secara resmi oleh Guru Pengawas Ujian X-OTO.</p>
                 </div>
             </div>
 
@@ -413,7 +410,7 @@
                 </p>
                 <ul class="list-disc list-inside space-y-1">
                     <li>Kuis akan otomatis terkunci jika melanggar 3x.</li>
-                    <li>Siswa tidak dapat keluar fullscreen secara manual.</li>
+                    <li>Siswa tidak dapat keluar fullscreen secara manual selama ujian.</li>
                 </ul>
             </div>
 
@@ -597,7 +594,7 @@
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVh1S-uNIDMFMQGffQC51GQtEGUt3X2b4znq33fSn8D_jMh3f5VPoC-o&s=10"
                 ],
                 pengertian: "Alat penekan berkerangka baja kokoh yang memanfaatkan daya tekan hidrolik puluhan ton.",
-                fungsi: "Memasang dan melepas komponen press-fit presisi pres tinggi seperti bearing (bantalan), bushing, poros pasak, serta meluruskan komponen bengkok.",
+                fungsi: "Memasang dan melepas komponen press-fit presisi tinggi seperti bearing (bantalan), bushing, poros pasak, serta meluruskan komponen bengkok.",
                 caraKerja: "Fluida hidrolik dipompa ke dalam piston silinder atas untuk menekan pin penekan (ram) ke bawah terhadap benda kerja yang ditahan meja landasan.",
                 penggunaan: [
                     "Letakkan benda kerja pada pelat meja landasan (V-block) secara rata dan presisi tegak lurus.",
@@ -912,15 +909,16 @@
             setupCarouselEvents();
             setupExamSecurityListeners();
             
+            const viewport = document.getElementById('carousel-viewport');
             const overlay = document.getElementById('swipe-overlay');
-            const hideOverlay = () => {
-                if(overlay) {
+            if (viewport && overlay) {
+                const hideOverlay = () => {
                     overlay.style.opacity = '0';
                     setTimeout(() => overlay.remove(), 500);
-                }
-            };
-            document.getElementById('carousel-viewport').addEventListener('touchstart', hideOverlay, {once: true});
-            document.getElementById('carousel-viewport').addEventListener('mousedown', hideOverlay, {once: true});
+                };
+                viewport.addEventListener('touchstart', hideOverlay, {once: true});
+                viewport.addEventListener('mousedown', hideOverlay, {once: true});
+            }
         };
 
         /* ==========================================================================
@@ -954,13 +952,18 @@
         }
 
         function openQuizAccessModal() {
-            document.getElementById('input-access-pin').value = '';
-            document.getElementById('access-pin-error-msg').classList.add('hidden');
-            document.getElementById('modal-quiz-access').classList.remove('hidden');
+            const inputPin = document.getElementById('input-access-pin');
+            const errorMsg = document.getElementById('access-pin-error-msg');
+            const modal = document.getElementById('modal-quiz-access');
+
+            if (inputPin) inputPin.value = '';
+            if (errorMsg) errorMsg.classList.add('hidden');
+            if (modal) modal.classList.remove('hidden');
         }
 
         function closeQuizAccessModal() {
-            document.getElementById('modal-quiz-access').classList.add('hidden');
+            const modal = document.getElementById('modal-quiz-access');
+            if (modal) modal.classList.add('hidden');
         }
 
         function verifyAccessPin() {
@@ -973,7 +976,8 @@
                 showSecurityToast("Akses Kuis Latihan Berhasil Dibuka! Selamat mengerjakan.");
                 startSecureExam();
             } else {
-                document.getElementById('access-pin-error-msg').classList.remove('hidden');
+                const errorMsg = document.getElementById('access-pin-error-msg');
+                if (errorMsg) errorMsg.classList.remove('hidden');
             }
         }
 
@@ -991,6 +995,7 @@
 
         function loadCacheOrInitializeQuiz() {
             const savedData = localStorage.getItem(CACHE_KEY);
+            let justReset = false;
             if (savedData) {
                 try {
                     const cache = JSON.parse(savedData);
@@ -1000,6 +1005,7 @@
                     isQuizUnlocked = cache.isQuizUnlocked || false;
                     userAnswers = cache.userAnswers || new Array(quizQuestions.length).fill(null);
                     activeShuffledQuestions = cache.shuffledQuestions || generateShuffledQuestions();
+                    justReset = cache.isJustResetToken || false;
                 } catch(e) {
                     activeShuffledQuestions = generateShuffledQuestions();
                 }
@@ -1007,12 +1013,22 @@
                 activeShuffledQuestions = generateShuffledQuestions();
             }
 
-            document.getElementById('student-name').value = studentName;
-            document.getElementById('display-student-name').innerText = studentName ? studentName : "-";
-            document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
+            const inputName = document.getElementById('student-name');
+            const displayName = document.getElementById('display-student-name');
+            const violationDisplay = document.getElementById('violation-count');
+
+            if (inputName) inputName.value = studentName;
+            if (displayName) displayName.innerText = studentName ? studentName : "-";
+            if (violationDisplay) violationDisplay.innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
 
             updateQuizAccessUI();
             renderQuizQuestions();
+
+            // Clear just reset flag so subsequent actions count as normal
+            if (justReset) {
+                violationCount = 0;
+                saveQuizToCache(false);
+            }
 
             if (violationCount >= MAX_VIOLATIONS) {
                 isExamSubmitted = true;
@@ -1023,21 +1039,26 @@
                 restoreSubmittedQuizUI();
             } else {
                 restoreActiveAnswersUI();
-                if ((studentName || userAnswers.some(a => a !== null)) && isQuizUnlocked) {
+                if (isQuizUnlocked || justReset) {
                     isExamActive = true;
-                    showFullscreenLockModal();
+                    // Automatically switch to quiz section on reload after token reset
+                    switchTab('kuis');
+                    if (!document.fullscreenElement) {
+                        showFullscreenLockModal();
+                    }
                 }
             }
         }
 
-        function saveQuizToCache() {
+        function saveQuizToCache(isJustReset = false) {
             const cachePayload = {
                 studentName: studentName,
                 isExamSubmitted: isExamSubmitted,
                 violationCount: violationCount,
                 isQuizUnlocked: isQuizUnlocked,
                 userAnswers: userAnswers,
-                shuffledQuestions: activeShuffledQuestions
+                shuffledQuestions: activeShuffledQuestions,
+                isJustResetToken: isJustReset
             };
             localStorage.setItem(CACHE_KEY, JSON.stringify(cachePayload));
         }
@@ -1060,7 +1081,8 @@
 
         function handleNameInput(val) {
             studentName = val.trim();
-            document.getElementById('display-student-name').innerText = studentName ? studentName : "-";
+            const displayName = document.getElementById('display-student-name');
+            if (displayName) displayName.innerText = studentName ? studentName : "-";
             saveQuizToCache();
         }
 
@@ -1072,7 +1094,8 @@
                 }
             });
             const answeredCount = userAnswers.filter(a => a !== null).length;
-            document.getElementById('stat-answered').innerText = `${answeredCount}/20`;
+            const statAnswered = document.getElementById('stat-answered');
+            if (statAnswered) statAnswered.innerText = `${answeredCount}/20`;
         }
 
         function restoreSubmittedQuizUI() {
@@ -1091,7 +1114,8 @@
 
             if (!studentName && !isExamSubmitted) {
                 switchTab('kuis');
-                document.getElementById('student-name').focus();
+                const nameInput = document.getElementById('student-name');
+                if (nameInput) nameInput.focus();
                 showSecurityToast("Masukkan Nama Lengkap terlebih dahulu sebelum ujian.");
                 return;
             }
@@ -1115,12 +1139,14 @@
 
         function showFullscreenLockModal() {
             if (isExamSubmitted || !isQuizUnlocked) return;
-            switchTab('kuis');
-            document.getElementById('modal-fullscreen-lock').classList.remove('hidden');
+            // Removed redundant switchTab('kuis') call to prevent infinite recursion loop
+            const modalLock = document.getElementById('modal-fullscreen-lock');
+            if (modalLock) modalLock.classList.remove('hidden');
         }
 
         function resumeFullscreenExam() {
-            document.getElementById('modal-fullscreen-lock').classList.add('hidden');
+            const modalLock = document.getElementById('modal-fullscreen-lock');
+            if (modalLock) modalLock.classList.add('hidden');
             enterFullscreenMode();
             isExamActive = true;
         }
@@ -1188,20 +1214,38 @@
         }
 
         function registerViolation(reason) {
+            // Check if page was just reloaded from token reset to prevent initial false positive
+            const savedData = localStorage.getItem(CACHE_KEY);
+            if (savedData) {
+                try {
+                    const cache = JSON.parse(savedData);
+                    if (cache.isJustResetToken) {
+                        saveQuizToCache(false);
+                        return;
+                    }
+                } catch(e){}
+            }
+
             if (isExamSubmitted || !isExamActive) return;
 
             violationCount++;
             if (violationCount > MAX_VIOLATIONS) violationCount = MAX_VIOLATIONS;
 
-            document.getElementById('violation-count').innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
+            const violationDisplay = document.getElementById('violation-count');
+            if (violationDisplay) violationDisplay.innerText = `${violationCount} / ${MAX_VIOLATIONS}`;
             saveQuizToCache();
 
             if (violationCount >= MAX_VIOLATIONS) {
                 isExamSubmitted = true;
                 isExamActive = false;
                 saveQuizToCache();
+                
+                // Disable all quiz radios immediately on max violations
+                const radios = document.querySelectorAll('.quiz-radio');
+                radios.forEach(r => r.disabled = true);
+                
                 showSecurityToast(`Batas 3/3 Pelanggaran Terlampaui (${reason})! Kuis dikunci.`);
-                submitQuiz(new Event('submit'), true);
+                submitQuiz(null, true);
             } else {
                 showSecurityToast(`Peringatan (${violationCount}/${MAX_VIOLATIONS}): ${reason}`);
             }
@@ -1221,19 +1265,28 @@
                     showSecurityToast("Akses Materi Dikunci selama Mode Ujian!");
                     return;
                 }
-                secMateri.classList.remove('hidden');
-                secKuis.classList.add('hidden');
-                btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md";
-                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center relative";
+                if (secMateri) secMateri.classList.remove('hidden');
+                if (secKuis) secKuis.classList.add('hidden');
+                if (btnMateri) btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md";
+                if (btnKuis) btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center relative";
             } else {
                 if (!isQuizUnlocked) {
                     openQuizAccessModal();
                     return;
                 }
-                secMateri.classList.add('hidden');
-                secKuis.classList.remove('hidden');
-                btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md flex items-center justify-center relative";
-                btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300";
+                if (secMateri) secMateri.classList.add('hidden');
+                if (secKuis) secKuis.classList.remove('hidden');
+                if (btnKuis) btnKuis.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-md flex items-center justify-center relative";
+                if (btnMateri) btnMateri.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-lg font-semibold text-sm text-slate-400 hover:text-white transition-all duration-300";
+            
+                // Force fullscreen whenever accessing Quiz tab without triggering stack overflow
+                if (!isExamSubmitted) {
+                    enterFullscreenMode();
+                    isExamActive = true;
+                    if (!document.fullscreenElement) {
+                        showFullscreenLockModal();
+                    }
+                }
             }
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
@@ -1244,6 +1297,8 @@
         function renderCarousel() {
             const track = document.getElementById('carousel-track');
             const dotsContainer = document.getElementById('carousel-dots');
+            if (!track || !dotsContainer) return;
+
             track.innerHTML = '';
             dotsContainer.innerHTML = '';
 
@@ -1287,9 +1342,11 @@
 
         function updateSlidePosition() {
             const track = document.getElementById('carousel-track');
-            const dots = document.getElementById('carousel-dots').children;
+            const dotsContainer = document.getElementById('carousel-dots');
             const caption = document.getElementById('slide-caption');
-            
+            if (!track || !dotsContainer || !caption) return;
+
+            const dots = dotsContainer.children;
             track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
             
             Array.from(dots).forEach((dot, idx) => {
@@ -1301,7 +1358,9 @@
             });
 
             const currentTool = toolsData[currentSlideIndex];
-            caption.innerHTML = `<span class="text-brand-orange font-bold font-tech">#${currentTool.id}</span> ${currentTool.name}`;
+            if (currentTool) {
+                caption.innerHTML = `<span class="text-brand-orange font-bold font-tech">#${currentTool.id}</span> ${currentTool.name}`;
+            }
         }
 
         function moveSlide(direction) {
@@ -1318,6 +1377,8 @@
 
         function setupCarouselEvents() {
             const viewport = document.getElementById('carousel-viewport');
+            if (!viewport) return;
+
             viewport.addEventListener('touchstart', touchStart);
             viewport.addEventListener('touchend', touchEnd);
             viewport.addEventListener('touchmove', touchMove);
@@ -1332,7 +1393,8 @@
             isDragging = true;
             startPosX = getPositionX(event);
             animationID = requestAnimationFrame(animation);
-            document.getElementById('carousel-track').classList.remove('transition-transform');
+            const track = document.getElementById('carousel-track');
+            if (track) track.classList.remove('transition-transform');
         }
 
         function touchMove(event) {
@@ -1346,7 +1408,7 @@
             isDragging = false;
             cancelAnimationFrame(animationID);
             const track = document.getElementById('carousel-track');
-            track.classList.add('transition-transform');
+            if (track) track.classList.add('transition-transform');
 
             const movedBy = currentTranslate - prevTranslate;
 
@@ -1384,6 +1446,7 @@
            ========================================================================== */
         function renderToolsCards() {
             const container = document.getElementById('tools-container');
+            if (!container) return;
             container.innerHTML = '';
 
             toolsData.forEach(tool => {
@@ -1498,11 +1561,12 @@
 
             cardSlideIndices[toolId] = index;
             const track = document.getElementById(`card-gallery-track-${toolId}`);
-            const dots = document.getElementById(`card-dots-${toolId}`).children;
+            const dotsContainer = document.getElementById(`card-dots-${toolId}`);
 
             if (track) track.style.transform = `translateX(-${index * 100}%)`;
 
-            if (dots) {
+            if (dotsContainer) {
+                const dots = dotsContainer.children;
                 Array.from(dots).forEach((dot, idx) => {
                     if (idx === index) {
                         dot.className = 'w-5 h-2 bg-brand-orange rounded-full transition-all duration-300';
@@ -1514,7 +1578,10 @@
         }
 
         function filterTools() {
-            const query = document.getElementById('search-tool').value.toLowerCase();
+            const searchInput = document.getElementById('search-tool');
+            if (!searchInput) return;
+
+            const query = searchInput.value.toLowerCase();
             const cards = document.querySelectorAll('.tool-card');
             
             cards.forEach(card => {
@@ -1532,18 +1599,21 @@
            ========================================================================== */
         function renderQuizQuestions() {
             const container = document.getElementById('questions-list');
+            if (!container) return;
             container.innerHTML = '';
 
             activeShuffledQuestions.forEach((item, index) => {
                 const qBox = document.createElement('div');
                 qBox.className = "bg-brand-card rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-lg space-y-4";
                 
-                let optionsHTML = item.options.map((opt, optIdx) => `
+                let optionsHTML = item.options.map((opt, optIdx) => {
+                    const isChecked = userAnswers[index] === optIdx;
+                    return `
                     <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all hover:bg-slate-900 group">
-                        <input type="radio" name="question-${index}" value="${optIdx}" onchange="selectAnswer(${index}, ${optIdx})" class="quiz-radio w-4 h-4 text-brand-orange bg-slate-800 border-slate-700 focus:ring-brand-orange focus:ring-offset-slate-900">
+                        <input type="radio" name="question-${index}" value="${optIdx}" ${isChecked ? 'checked' : ''} ${isExamSubmitted ? 'disabled' : ''} onchange="selectAnswer(${index}, ${optIdx})" class="quiz-radio w-4 h-4 text-brand-orange bg-slate-800 border-slate-700 focus:ring-brand-orange focus:ring-offset-slate-900">
                         <span class="text-xs sm:text-sm text-slate-300 group-hover:text-white transition-colors">${opt}</span>
                     </label>
-                `).join('');
+                `}).join('');
 
                 qBox.innerHTML = `
                     <div class="flex items-start justify-between gap-4">
@@ -1562,7 +1632,8 @@
             if (isExamSubmitted) return;
             userAnswers[qIndex] = optIndex;
             const answeredCount = userAnswers.filter(a => a !== null).length;
-            document.getElementById('stat-answered').innerText = `${answeredCount}/20`;
+            const statAnswered = document.getElementById('stat-answered');
+            if (statAnswered) statAnswered.innerText = `${answeredCount}/20`;
             saveQuizToCache();
         }
 
@@ -1571,7 +1642,8 @@
 
             if (!isRestoring && !studentName) {
                 showSecurityToast("Harap masukkan Nama Lengkap Anda sebelum mengirim kuis!");
-                document.getElementById('student-name').focus();
+                const nameInput = document.getElementById('student-name');
+                if (nameInput) nameInput.focus();
                 return;
             }
 
@@ -1586,15 +1658,21 @@
 
             const radios = document.querySelectorAll('.quiz-radio');
             radios.forEach(r => r.disabled = true);
-            document.getElementById('student-name').disabled = true;
+            const inputName = document.getElementById('student-name');
+            if (inputName) inputName.disabled = true;
             
             const submitBtn = document.getElementById('btn-submit-quiz');
-            submitBtn.disabled = true;
-            submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-slate-800 text-slate-500 font-bold text-sm cursor-not-allowed border border-slate-700";
-            submitBtn.innerHTML = `<i class="fa-solid fa-lock mr-2"></i>Jawaban Terkunci (Sudah Dikirim)`;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-slate-800 text-slate-500 font-bold text-sm cursor-not-allowed border border-slate-700";
+                submitBtn.innerHTML = `<i class="fa-solid fa-lock mr-2"></i>Jawaban Terkunci (Sudah Dikirim)`;
+            }
 
-            document.getElementById('submit-chance-badge').className = "text-red-400 font-bold";
-            document.getElementById('submit-chance-badge').innerText = "0/1 (Terkunci)";
+            const badgeSubmit = document.getElementById('submit-chance-badge');
+            if (badgeSubmit) {
+                badgeSubmit.className = "text-red-400 font-bold";
+                badgeSubmit.innerText = "0/1 (Terkunci)";
+            }
 
             let score = 0;
             let answeredCount = 0;
@@ -1621,19 +1699,22 @@
             });
 
             const statScore = document.getElementById('stat-score');
-            statScore.innerText = `${score}/100`;
+            if (statScore) statScore.innerText = `${score}/100`;
 
             const statusMsg = document.getElementById('quiz-status-msg');
-            if (answeredCount === 0) {
-                statusMsg.innerHTML = `<span class="text-red-400 font-bold">Kuis Terkunci! Anda mengirim kuis tanpa menjawab soal apapun. Skor: 0/100.</span>`;
-            } else if (answeredCount < activeShuffledQuestions.length) {
-                statusMsg.innerHTML = `<span class="text-amber-400 font-bold">Kuis Terkunci! Dijawab ${answeredCount}/${activeShuffledQuestions.length} soal. Skor: ${score}/100.</span> Ulasan hanya tampil untuk soal yang dijawab.`;
-            } else {
-                statusMsg.innerHTML = `<span class="text-emerald-400 font-bold">Kuis Terkunci & Selesai! Nama: ${studentName || 'Peserta'} | Skor: ${score}/100.</span> Seluruh ulasan ditampilkan di bawah.`;
+            if (statusMsg) {
+                if (answeredCount === 0) {
+                    statusMsg.innerHTML = `<span class="text-red-400 font-bold">Kuis Terkunci! Anda mengirim kuis tanpa menjawab soal apapun. Skor: 0/100.</span>`;
+                } else if (answeredCount < activeShuffledQuestions.length) {
+                    statusMsg.innerHTML = `<span class="text-amber-400 font-bold">Kuis Terkunci! Dijawab ${answeredCount}/${activeShuffledQuestions.length} soal. Skor: ${score}/100.</span> Ulasan hanya tampil untuk soal yang dijawab.`;
+                } else {
+                    statusMsg.innerHTML = `<span class="text-emerald-400 font-bold">Kuis Terkunci & Selesai! Nama: ${studentName || 'Peserta'} | Skor: ${score}/100.</span> Seluruh ulasan ditampilkan di bawah.`;
+                }
             }
 
             if (!isRestoring) {
-                document.getElementById('quiz-scoreboard').scrollIntoView({ behavior: 'smooth' });
+                const scoreboard = document.getElementById('quiz-scoreboard');
+                if (scoreboard) scoreboard.scrollIntoView({ behavior: 'smooth' });
             }
 
             if (document.exitFullscreen && document.fullscreenElement) {
@@ -1643,26 +1724,48 @@
 
         /* TOKEN / PIN RESET MODAL FUNCTIONS */
         function requestTeacherResetPin() {
-            document.getElementById('input-teacher-pin').value = '';
-            document.getElementById('pin-error-msg').classList.add('hidden');
-            document.getElementById('modal-security').classList.remove('hidden');
+            const inputPin = document.getElementById('input-teacher-pin');
+            const errorMsg = document.getElementById('pin-error-msg');
+            const modal = document.getElementById('modal-security');
+
+            if (inputPin) inputPin.value = '';
+            if (errorMsg) errorMsg.classList.add('hidden');
+            if (modal) modal.classList.remove('hidden');
         }
 
         function closeSecurityModal() {
-            document.getElementById('modal-security').classList.add('hidden');
+            const modal = document.getElementById('modal-security');
+            if (modal) modal.classList.add('hidden');
         }
 
         function verifyTeacherPin() {
             const pinInput = document.getElementById('input-teacher-pin').value.trim();
             if (pinInput === TEACHER_PIN || pinInput === ACCESS_PIN) {
                 closeSecurityModal();
-                performFullQuizReset();
-                showSecurityToast("Reset Token Berhasil! Kuis dapat dikerjakan kembali.");
+                if (isExamSubmitted) {
+                    performFullQuizReset();
+                } else {
+                    unlockViolationKeepProgress();
+                }
             } else {
-                document.getElementById('pin-error-msg').classList.remove('hidden');
+                const errorMsg = document.getElementById('pin-error-msg');
+                if (errorMsg) errorMsg.classList.remove('hidden');
             }
         }
 
+        /* Reset Pelanggaran Saja (Simpan Progress Jawaban) */
+        function unlockViolationKeepProgress() {
+            violationCount = 0;
+            isExamSubmitted = false;
+            isExamActive = true;
+            isQuizUnlocked = true;
+
+            saveQuizToCache(true);
+            // Automatically reload page after resetting violation status via token
+            location.reload();
+        }
+
+        /* Reset Total Kuis & Hapus Cache */
         function performFullQuizReset() {
             localStorage.removeItem(CACHE_KEY);
             
@@ -1674,38 +1777,10 @@
             violationCount = 0;
             activeShuffledQuestions = generateShuffledQuestions();
 
-            document.getElementById('student-name').value = '';
-            document.getElementById('student-name').disabled = false;
-            document.getElementById('display-student-name').innerText = '-';
-            document.getElementById('quiz-form').reset();
-            document.getElementById('stat-answered').innerText = '0/20';
-            document.getElementById('stat-score').innerText = '-';
-            document.getElementById('violation-count').innerText = `0 / ${MAX_VIOLATIONS}`;
-            document.getElementById('quiz-status-msg').innerText = 'Silakan jawab seluruh 20 pertanyaan.';
-
-            document.getElementById('submit-chance-badge').className = "text-emerald-400 font-bold";
-            document.getElementById('submit-chance-badge').innerText = "1/1 Masih Ada";
-
-            const submitBtn = document.getElementById('btn-submit-quiz');
-            submitBtn.disabled = false;
-            submitBtn.className = "flex-1 sm:flex-none px-8 py-3 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-red-600 hover:to-orange-600 text-white font-bold text-sm transition-all shadow-lg shadow-brand-red/20";
-            submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane mr-2"></i>Kirim & Lihat Hasil (Sekali Klik)`;
-
-            renderQuizQuestions();
-            updateQuizAccessUI();
-
-            activeShuffledQuestions.forEach((_, index) => {
-                const feedbackEl = document.getElementById(`feedback-${index}`);
-                if (feedbackEl) {
-                    feedbackEl.className = "hidden p-3 rounded-xl text-xs leading-relaxed border mt-2";
-                    feedbackEl.innerHTML = "";
-                }
-            });
-
-            saveQuizToCache();
-            enterFullscreenMode();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            saveQuizToCache(true);
+            // Automatically reload page after full reset via token
+            location.reload();
         }
     </script>
 
-<script src="./script.js"></script><script src="./script.js"></script></body></html>
+<script src="./script.js"></script></body></html>
